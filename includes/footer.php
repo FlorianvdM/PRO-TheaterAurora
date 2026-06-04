@@ -11,5 +11,6 @@
   </footer>
 
   <script src="assets/js/meldingen.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
