@@ -10,13 +10,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= htmlspecialchars($paginaTitel ?? 'TheaterAurora') ?></title>
-
   <link rel="stylesheet" href="assets/css/style.css" />
-  <?php
-  // Laad de CSS die de pagina meegeeft, standaard meldingen.css
-  $cssBestand = $paginaCss ?? 'assets/css/meldingen.css';
-  ?>
-  <link rel="stylesheet" href="<?= htmlspecialchars($cssBestand) ?>" />
+  <?php if (!empty($paginaCss)): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($paginaCss) ?>" />
+  <?php endif; ?>
 </head>
 <body>
 
