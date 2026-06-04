@@ -3,7 +3,6 @@
 require_once __DIR__ . '/includes/db.php';
 
 $paginaTitel = 'Medewerkers';
-$paginaCss   = 'assets/css/medewerker.css';
 
 $stmt = $pdo->query(
     'SELECT m.*, g.Voornaam, g.Tussenvoegsel, g.Achternaam, g.Gebruikersnaam, c.Email
