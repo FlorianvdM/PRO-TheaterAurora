@@ -3,74 +3,6 @@
    TheaterAurora – Meldingen pagina stijlen
    ============================================ */
 
-/* --- Reset & basis --- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --kleur-achtergrond:   #111827;
-  --kleur-vlak:          #1f2937;
-  --kleur-rand:          #374151;
-  --kleur-accent:        #1e3a5f;
-  --kleur-accent-hover:  #2563a8;
-  --kleur-tekst:         #e5e7eb;
-  --kleur-tekst-zacht:   #9ca3af;
-  --kleur-tab-actief-bg: #1e3a5f;
-  --kleur-tab-actief-tekst: #ffffff;
-  --lettertype:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --straal:              6px;
-}
-
-body {
-  background-color: var(--kleur-achtergrond);
-  color: var(--kleur-tekst);
-  font-family: var(--lettertype);
-  font-size: 14px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ============================================
-   HEADER
-   ============================================ */
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-bottom: 1px solid var(--kleur-rand);
-}
-
-.header-logo {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 18px;
-  border-radius: var(--straal);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-}
-
-.header-nav {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 40px;
-  border-radius: var(--straal);
-  font-size: 14px;
-  color: var(--kleur-tekst);
-}
-
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
-.main-content {
-  flex: 1;
-  padding: 28px 24px;
-}
-
 .meldingen-sectie {
   max-width: 860px;
 }
@@ -82,9 +14,6 @@ body {
   color: var(--kleur-tekst);
 }
 
-/* ============================================
-   FILTER TABS
-   ============================================ */
 .filter-tabs {
   display: flex;
   gap: 8px;
@@ -109,15 +38,12 @@ body {
 }
 
 .tab.actief {
-  background-color: var(--kleur-tab-actief-bg);
-  border-color: var(--kleur-tab-actief-bg);
-  color: var(--kleur-tab-actief-tekst);
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #fff;
   font-weight: 600;
 }
 
-/* ============================================
-   MELDINGEN LIJST
-   ============================================ */
 .meldingen-lijst {
   list-style: none;
   display: flex;
@@ -143,25 +69,4 @@ body {
 
 .melding-item.verborgen {
   display: none;
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-top: 1px solid var(--kleur-rand);
-}
-
-.footer-info,
-.footer-copy {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 24px;
-  border-radius: var(--straal);
-  font-size: 13px;
-  color: var(--kleur-tekst);
 }
