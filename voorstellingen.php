@@ -56,7 +56,7 @@ require_once 'includes/header.php';
   <main class="main-content">
 
     <!-- ZOEKBALK -->
-    <form method="GET" action="" class="zoek-formulier">
+    <form method="GET" action="voorstellingen.php" class="zoek-formulier">
       <input
         type="text"
         name="zoeken"
@@ -65,6 +65,7 @@ require_once 'includes/header.php';
         value="<?= htmlspecialchars($zoekTerm) ?>"
       />
     </form>
+
 
     <!-- KAARTEN RASTER -->
     <div class="kaarten-raster">
