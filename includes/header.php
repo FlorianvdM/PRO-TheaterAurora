@@ -21,8 +21,8 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="voorstellingen.php">Voorstellingen</a></li>
         <li><a href="tickets.php">Tickets</a></li>
+        <li><a href="accounts.php">Accounts</a></li>
         <li><a href="meldingen.php">Meldingen</a></li>
-        <li><a href="contact.php">Contact</a></li>
       </ul>
     </nav>
   </header>

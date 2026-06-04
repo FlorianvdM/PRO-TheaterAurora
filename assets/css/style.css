@@ -61,6 +61,16 @@ body {
   color: var(--kleur-tekst);
 }
 
+.header-nav a {
+  color: var(--kleur-tekst);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: var(--kleur-accent-hover);
+}
+
 /* ============================================
    MAIN CONTENT – HERO
    ============================================ */
