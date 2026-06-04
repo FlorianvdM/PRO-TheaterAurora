@@ -1,18 +1,18 @@
 <?php
 // ============================================
-// admin/accounts.php
+// accounts.php
 // TheaterAurora – Accounts overzicht (admin)
 // ============================================
 
 $paginaTitel = 'Accounts – TheaterAurora Admin';
-$paginaCss   = '../assets/css/accounts.css';
+$paginaCss = 'assets/css/accounts.css';
 
 // Voorbeelddata – later te vervangen door database-query
 $accounts = [
-  ['id' => 1, 'email' => 'jan.jansen@theater.nl',   'rol' => 'Medewerker'],
-  ['id' => 2, 'email' => 'lisa.vos@theater.nl',     'rol' => 'Admin'],
+  ['id' => 1, 'email' => 'jan.jansen@theater.nl', 'rol' => 'Medewerker'],
+  ['id' => 2, 'email' => 'lisa.vos@theater.nl', 'rol' => 'Admin'],
   ['id' => 3, 'email' => 'peter.bakker@theater.nl', 'rol' => 'Medewerker'],
-  ['id' => 4, 'email' => 'sara.de.wit@theater.nl',  'rol' => 'Medewerker'],
+  ['id' => 4, 'email' => 'sara.de.wit@theater.nl', 'rol' => 'Medewerker'],
 ];
 
 // Zoekfilter op e-mail
@@ -24,7 +24,7 @@ if ($zoekEmail !== '') {
   );
 }
 
-require_once '../includes/header.php';
+require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
@@ -83,7 +83,6 @@ require_once '../includes/header.php';
           </tbody>
         </table>
 
-        <!-- Fallback label voor lege staat (wireframe stijl) -->
         <?php if (empty($accounts)): ?>
           <p class="tabel-leeg-label">Overzicht accounts</p>
         <?php endif; ?>
@@ -92,4 +91,4 @@ require_once '../includes/header.php';
     </section>
   </main>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>
