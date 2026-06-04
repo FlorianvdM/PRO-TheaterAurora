@@ -6,6 +6,7 @@
 
 $paginaTitel = 'Theater Aurora – Waar toneelstukken echt tot leven komen';
 
+
 require_once 'includes/header.php';
 ?>
 
