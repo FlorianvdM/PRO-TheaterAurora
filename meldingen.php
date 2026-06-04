@@ -5,6 +5,7 @@
 // ============================================
 
 $paginaTitel = 'Meldingen – TheaterAurora';
+$paginaCss = 'assets/css/meldingen.css';
 
 // Beschikbare filter-categorieën
 $filterOpties = [
