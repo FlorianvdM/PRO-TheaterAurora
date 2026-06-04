@@ -13,7 +13,7 @@
 
   <?php
   // Laad de CSS die de pagina meegeeft, standaard meldingen.css
-  $cssBestand = $paginaCss ?? 'assets/css/meldingen.css';
+  $cssBestand = $paginaCss ?? 'assets/css/style.css';
   ?>
   <link rel="stylesheet" href="<?= htmlspecialchars($cssBestand) ?>" />
 </head>
