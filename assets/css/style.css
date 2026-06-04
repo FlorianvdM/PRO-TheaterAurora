@@ -1,0 +1,176 @@
+/* ============================================
+   assets/css/style.css
+   TheaterAurora – Basis stijlen
+   ============================================ */
+
+/* --- Reset & basis --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --kleur-achtergrond:   #111827;
+  --kleur-vlak:          #1f2937;
+  --kleur-rand:          #374151;
+  --kleur-accent:        #1e3a5f;
+  --kleur-accent-hover:  #2563a8;
+  --kleur-tekst:         #e5e7eb;
+  --kleur-tekst-zacht:   #9ca3af;
+  --lettertype:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --straal:              6px;
+}
+
+body {
+  background-color: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: var(--lettertype);
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.header-logo {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 18px;
+  border-radius: var(--straal);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.header-nav {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 80px;
+  border-radius: var(--straal);
+  font-size: 14px;
+  color: var(--kleur-tekst);
+}
+
+.header-nav ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  color: var(--kleur-tekst);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: var(--kleur-accent-hover);
+}
+
+/* ============================================
+   MAIN CONTENT – HERO
+   ============================================ */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-sectie {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-titel {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--kleur-tekst);
+  letter-spacing: 0.02em;
+}
+
+.hero-ondertitel {
+  font-size: 15px;
+  color: var(--kleur-tekst-zacht);
+  font-weight: 400;
+}
+
+/* ============================================
+   KNOPPEN
+   ============================================ */
+.hero-knoppen {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.knop {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: var(--straal);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.knop-primair {
+  background-color: transparent;
+  border: 1px solid var(--kleur-tekst);
+  color: var(--kleur-tekst);
+}
+
+.knop-primair:hover {
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent-hover);
+}
+
+.knop-secundair {
+  background-color: transparent;
+  border: 1px solid var(--kleur-tekst);
+  color: var(--kleur-tekst);
+}
+
+.knop-secundair:hover {
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent-hover);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-top: 1px solid var(--kleur-rand);
+}
+
+.footer-info,
+.footer-copy {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 40px;
+  border-radius: var(--straal);
+  font-size: 13px;
+  color: var(--kleur-tekst);
+}

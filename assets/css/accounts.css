@@ -1,74 +1,17 @@
 /* ============================================
    assets/css/accounts.css
    TheaterAurora – Accounts admin pagina stijlen
+   (Pagina-specifiek: header, footer, reset etc.
+    worden geladen via style.css)
    ============================================ */
 
-/* --- Reset & basis --- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --kleur-achtergrond:      #111827;
-  --kleur-vlak:             #1f2937;
-  --kleur-rand:             #374151;
-  --kleur-accent:           #1e3a5f;
-  --kleur-accent-hover:     #2563a8;
-  --kleur-rood:             #7f1d1d;
-  --kleur-rood-hover:       #b91c1c;
-  --kleur-tekst:            #e5e7eb;
-  --kleur-tekst-zacht:      #9ca3af;
-  --lettertype:             'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --straal:                 6px;
-}
-
-body {
-  background-color: var(--kleur-achtergrond);
-  color: var(--kleur-tekst);
-  font-family: var(--lettertype);
-  font-size: 14px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 /* ============================================
-   HEADER
-   ============================================ */
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-bottom: 1px solid var(--kleur-rand);
-}
-
-.header-logo {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 18px;
-  border-radius: var(--straal);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-}
-
-.header-nav {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 40px;
-  border-radius: var(--straal);
-  font-size: 14px;
-  color: var(--kleur-tekst);
-}
-
-/* ============================================
-   MAIN CONTENT
+   MAIN CONTENT – override voor accounts
    ============================================ */
 .main-content {
   flex: 1;
   padding: 28px 24px;
+  display: block;
 }
 
 .accounts-sectie {
@@ -192,18 +135,6 @@ body {
   padding-right: 16px;
 }
 
-.knop {
-  display: inline-block;
-  padding: 5px 14px;
-  border-radius: var(--straal);
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
 .knop-wijzig {
   background-color: transparent;
   border-color: var(--kleur-rand);
@@ -222,8 +153,8 @@ body {
 }
 
 .knop-verwijder:hover {
-  background-color: var(--kleur-rood);
-  border-color: var(--kleur-rood-hover);
+  background-color: #7f1d1d;
+  border-color: #b91c1c;
 }
 
 /* Lege staat label */
@@ -233,25 +164,4 @@ body {
   color: var(--kleur-tekst-zacht);
   font-size: 13px;
   text-align: center;
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-top: 1px solid var(--kleur-rand);
-}
-
-.footer-info,
-.footer-copy {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 24px;
-  border-radius: var(--straal);
-  font-size: 13px;
-  color: var(--kleur-tekst);
 }
