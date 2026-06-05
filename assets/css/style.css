@@ -1,0 +1,511 @@
+/* ============================================
+   assets/css/style.css
+   TheaterAurora – Alle stijlen
+   ============================================ */
+
+/* --- Reset & basis --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --kleur-achtergrond:   #111827;
+  --kleur-vlak:          #1f2937;
+  --kleur-rand:          #374151;
+  --kleur-accent:        #1e3a5f;
+  --kleur-accent-hover:  #2563a8;
+  --kleur-tekst:         #e5e7eb;
+  --kleur-tekst-zacht:   #9ca3af;
+  --lettertype:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --straal:              6px;
+}
+
+body {
+  background-color: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: var(--lettertype);
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.header-logo {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 18px;
+  border-radius: var(--straal);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.header-nav {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 40px;
+  border-radius: var(--straal);
+  font-size: 14px;
+  color: var(--kleur-tekst);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+  flex: 1;
+  padding: 28px 24px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-top: 1px solid var(--kleur-rand);
+}
+
+.footer-info,
+.footer-copy {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 24px;
+  border-radius: var(--straal);
+  font-size: 13px;
+  color: var(--kleur-tekst);
+}
+
+/* ============================================
+   Knoppen
+   ============================================ */
+.knop {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: var(--straal);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.knop-primair {
+  background-color: var(--kleur-accent);
+  border: 1px solid var(--kleur-accent);
+  color: #fff;
+}
+
+.knop-primair:hover {
+  background-color: var(--kleur-accent-hover);
+  border-color: var(--kleur-accent-hover);
+}
+
+.knop-secundair {
+  background-color: transparent;
+  border: 1px solid var(--kleur-rand);
+  color: var(--kleur-tekst);
+}
+
+.knop-secundair:hover {
+  border-color: var(--kleur-accent-hover);
+  color: var(--kleur-tekst);
+}
+
+/* ============================================
+   Container
+   ============================================ */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Pagina titel & subtitel
+   ============================================ */
+.pagina-titel {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--kleur-tekst);
+}
+
+.pagina-subtitel {
+  color: var(--kleur-tekst-zacht);
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   Statistiek kaarten
+   ============================================ */
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background-color: var(--kleur-vlak);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  padding: 16px 24px;
+  min-width: 160px;
+}
+
+.stat-card span {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  color: var(--kleur-tekst);
+}
+
+.stat-card label {
+  font-size: 12px;
+  color: var(--kleur-tekst-zacht);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Tabellen
+   ============================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+th {
+  font-weight: 600;
+  color: var(--kleur-tekst-zacht);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  color: var(--kleur-tekst);
+  font-size: 14px;
+}
+
+.lege-rij td {
+  color: var(--kleur-tekst-zacht);
+  font-style: italic;
+}
+
+/* ============================================
+   HOME – Hero sectie
+   ============================================ */
+.hero-sectie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.hero-titel {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--kleur-tekst);
+  letter-spacing: 0.02em;
+}
+
+.hero-ondertitel {
+  font-size: 18px;
+  color: var(--kleur-tekst-zacht);
+  max-width: 480px;
+}
+
+.hero-knoppen {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ============================================
+   MELDINGEN – Filter tabs & lijst
+   ============================================ */
+.meldingen-sectie {
+  max-width: 860px;
+}
+
+.sectie-titel {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--kleur-tekst);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background-color: transparent;
+  border: 1px solid var(--kleur-rand);
+  color: var(--kleur-tekst-zacht);
+  padding: 5px 16px;
+  border-radius: var(--straal);
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab:hover {
+  border-color: var(--kleur-accent-hover);
+  color: var(--kleur-tekst);
+}
+
+.tab.actief {
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.meldingen-lijst {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.melding-item {
+  background-color: var(--kleur-vlak);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  padding: 14px 18px;
+  color: var(--kleur-tekst-zacht);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.melding-item:hover {
+  border-color: var(--kleur-accent-hover);
+  background-color: #253347;
+}
+
+.melding-item.verborgen {
+  display: none;
+}
+
+/* ============================================
+   Pagina header (titel + knop naast elkaar)
+   ============================================ */
+.pagina-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   Stat-kleuren
+   ============================================ */
+.stat-card--actief {
+  border-left: 4px solid #22c55e;
+}
+
+.stat-card--inactief {
+  border-left: 4px solid #ef4444;
+}
+
+/* ============================================
+   Filterformulier
+   ============================================ */
+.filter-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-input,
+.filter-select {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--kleur-vlak);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  color: var(--kleur-tekst);
+  font-size: 14px;
+  font-family: var(--lettertype);
+}
+
+.filter-input::placeholder {
+  color: var(--kleur-tekst-zacht);
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: var(--kleur-accent-hover);
+}
+
+.filter-select option {
+  background-color: var(--kleur-vlak);
+  color: var(--kleur-tekst);
+}
+
+/* ============================================
+   Soort badge
+   ============================================ */
+.soort-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--straal);
+  background-color: var(--kleur-accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ============================================
+   Status badge
+   ============================================ */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--straal);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge--actief {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-badge--inactief {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* ============================================
+   Cel stijlen
+   ============================================ */
+.cel-naam {
+  font-weight: 600;
+}
+
+.naam-volledig {
+  white-space: nowrap;
+}
+
+.cel-datum {
+  white-space: nowrap;
+  color: var(--kleur-tekst-zacht);
+  font-size: 13px;
+}
+
+.cel-acties {
+  white-space: nowrap;
+}
+
+/* ============================================
+   Kleine actieknoppen
+   ============================================ */
+.knop-klein {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: var(--straal);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  margin-right: 4px;
+}
+
+.knop-klein--wijzig {
+  background-color: transparent;
+  border: 1px solid var(--kleur-rand);
+  color: var(--kleur-tekst);
+}
+
+.knop-klein--wijzig:hover {
+  border-color: var(--kleur-accent-hover);
+  color: var(--kleur-tekst);
+}
+
+.knop-klein--verwijder {
+  background-color: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.knop-klein--verwijder:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .pagina-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-form {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    min-width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+
+  .cel-datum,
+  th:nth-child(9) {
+    display: none;
+  }
+
+  .soort-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+}
