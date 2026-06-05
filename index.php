@@ -5,7 +5,6 @@
 // ============================================
 
 $paginaTitel = 'Theater Aurora – Waar toneelstukken echt tot leven komen';
-$paginaCss = 'assets/css/index.css';
 require_once 'includes/header.php';
 ?>
 

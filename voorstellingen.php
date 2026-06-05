@@ -5,7 +5,6 @@
 // ============================================
 
 $paginaTitel = 'Voorstellingen – TheaterAurora';
-$paginaCss   = 'assets/css/voorstellingen.css';
 
 // Voorbeelddata – later te vervangen door database-query
 $voorstellingen = [
