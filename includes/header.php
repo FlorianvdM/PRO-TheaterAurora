@@ -12,6 +12,9 @@
   <title><?= htmlspecialchars($paginaTitel ?? 'TheaterAurora') ?></title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/meldingen.css" />
+  <?php if (!empty($paginaCss)): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($paginaCss) ?>" />
+  <?php endif; ?>
   <style>
     /* Hamburger menu */
     .hamburger {

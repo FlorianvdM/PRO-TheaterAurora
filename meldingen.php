@@ -6,6 +6,7 @@
 
 $paginaTitel = 'Meldingen – TheaterAurora';
 
+
 // Beschikbare filter-categorieën
 $filterOpties = [
   'alle'         => 'Alle',

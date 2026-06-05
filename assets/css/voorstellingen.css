@@ -1,0 +1,231 @@
+/* ============================================
+   assets/css/voorstellingen.css
+   TheaterAurora – Voorstellingen pagina stijlen
+   ============================================ */
+
+/* --- Reset & basis --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --kleur-achtergrond:   #111827;
+  --kleur-vlak:          #1f2937;
+  --kleur-rand:          #374151;
+  --kleur-accent:        #1e3a5f;
+  --kleur-accent-hover:  #2563a8;
+  --kleur-tekst:         #e5e7eb;
+  --kleur-tekst-zacht:   #9ca3af;
+  --lettertype:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --straal:              6px;
+}
+
+body {
+  background-color: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: var(--lettertype);
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.header-logo {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 18px;
+  border-radius: var(--straal);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.header-nav {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 80px;
+  border-radius: var(--straal);
+  font-size: 14px;
+  color: var(--kleur-tekst);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+  flex: 1;
+  padding: 28px 24px;
+  
+  /* VOEG DEZE REGELS TOE: Dit dwingt de zoekbalk en het kaarten-raster onder elkaar */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Zorgt dat zowel de zoekbalk als het grid links beginnen */
+  gap: 20px;               /* Ruimte tussen de zoekbalk en het grid */
+}
+
+/* ============================================
+   ZOEKBALK
+   ============================================ */
+.zoek-formulier {
+  margin-bottom: 12px;     /* Iets verlaagd omdat 'gap' hierboven nu ook ruimte geeft */
+  width: 100%;       
+  max-width: 800px;  
+  /* align-self: flex-start;  <-- DEZE MAG WEG, de main-content regelt dit nu centraal */
+}
+
+.zoek-input {
+  width: 100%;       /* Dit staat goed, vult nu netjes de 800px van het formulier */
+  /* max-width: 800px; <-- Deze mag je hier weghalen, want het formulier regelt dit nu */
+  background-color: transparent;
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  color: var(--kleur-tekst);
+  padding: 9px 14px;
+  font-size: 13px;
+  transition: border-color 0.2s ease;
+}
+
+.zoek-input::placeholder {
+  color: var(--kleur-tekst-zacht);
+}
+
+.zoek-input:focus {
+  outline: none;
+  border-color: var(--kleur-accent-hover);
+}
+
+/* ============================================
+   KAARTEN RASTER
+   ============================================ */
+/* Zorg er ook voor dat je raster de volledige breedte mag pakken */
+.kaarten-raster {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;             /* VOEG DIT TOE: Zorgt dat je grid weer mooi over het hele scherm verdeelt */
+}
+
+@media (max-width: 1100px) {
+  .kaarten-raster { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .kaarten-raster { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .kaarten-raster { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   KAART
+   ============================================ */
+.kaart {
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  overflow: hidden;
+  background-color: var(--kleur-vlak);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.kaart:hover {
+  border-color: var(--kleur-accent-hover);
+}
+
+/* Afbeelding gedeelte */
+.kaart-afbeelding {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--kleur-achtergrond);
+  flex-shrink: 0;
+}
+
+.kaart-afbeelding img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SVG placeholder (kruis) */
+.afbeelding-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kleur-rand);
+  padding: 8px;
+}
+
+.afbeelding-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tekst gedeelte */
+.kaart-inhoud {
+  padding: 12px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kaart-titel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kleur-tekst);
+}
+
+.kaart-tekst {
+  font-size: 12px;
+  color: var(--kleur-tekst-zacht);
+  line-height: 1.6;
+}
+
+/* Geen resultaten */
+.geen-resultaten {
+  color: var(--kleur-tekst-zacht);
+  font-size: 13px;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--kleur-achtergrond);
+  border-top: 1px solid var(--kleur-rand);
+  margin-top: 40px;
+}
+
+.footer-info,
+.footer-copy {
+  border: 1px solid var(--kleur-tekst);
+  padding: 6px 40px;
+  border-radius: var(--straal);
+  font-size: 13px;
+  color: var(--kleur-tekst);
+}
