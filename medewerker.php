@@ -2,6 +2,11 @@
 
 require_once __DIR__ . '/includes/db.php';
 
+if ($pdo === null) {
+    require_once __DIR__ . '/includes/header.php';
+    exit;
+}
+
 $paginaTitel = 'Medewerkers';
 
 $zoekterm = $_GET['zoeken'] ?? '';

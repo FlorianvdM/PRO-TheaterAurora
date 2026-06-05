@@ -5,6 +5,33 @@
 // ============================================
 
 require_once __DIR__ . '/db.php';
+
+if ($pdo === null) {
+    $foutMelding = $dbFout ?? 'Er is een fout opgetreden.';
+    ?><!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fout – TheaterAurora</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-logo">TheaterAurora</div>
+  </header>
+  <main class="main-content" style="display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;max-width:480px;">
+      <h1 style="font-size:32px;font-weight:600;margin-bottom:12px;">Database niet bereikbaar</h1>
+      <p style="color:var(--kleur-tekst-zacht);font-size:15px;"><?= htmlspecialchars($foutMelding) ?></p>
+    </div>
+  </main>
+</body>
+</html>
+<?php
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">

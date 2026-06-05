@@ -19,5 +19,6 @@ try {
     $pdo->exec("CREATE DATABASE IF NOT EXISTS `{$dbNaam}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
     $pdo->exec("USE `{$dbNaam}`");
 } catch (PDOException $e) {
-    exit('Databaseverbinding mislukt: ' . $e->getMessage());
+    $pdo = null;
+    $dbFout = 'Databaseverbinding mislukt. Probeer het later opnieuw.';
 }
