@@ -3,6 +3,8 @@
 // includes/header.php
 // TheaterAurora – Globale header include
 // ============================================
+
+require_once __DIR__ . '/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="nl">
