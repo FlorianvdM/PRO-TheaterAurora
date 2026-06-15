@@ -1,6 +1,6 @@
 <?php
 
-$dbHost = 'localhost';
+$dbHost = 'localhost:3307';
 $dbNaam = 'theater_aurora';
 $dbGebruiker = 'root';
 $dbWachtwoord = '';
