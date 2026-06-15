@@ -3,7 +3,7 @@
 $dbHost = 'localhost';
 $dbNaam = 'theater_aurora';
 $dbGebruiker = 'root';
-$dbWachtwoord = 'root';
+$dbWachtwoord = '';
 
 try {
     $pdo = new PDO(

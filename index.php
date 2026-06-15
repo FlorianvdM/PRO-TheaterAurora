@@ -5,6 +5,7 @@
 // ============================================
 
 $paginaTitel = 'Theater Aurora – Waar toneelstukken echt tot leven komen';
+$bodyClass = 'homepagina-bg';
 require_once 'includes/header.php';
 ?>
 

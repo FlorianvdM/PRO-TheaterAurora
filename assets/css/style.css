@@ -11,14 +11,16 @@
 }
 
 :root {
-  --kleur-achtergrond:   #111827;
-  --kleur-vlak:          #1f2937;
-  --kleur-rand:          #374151;
-  --kleur-accent:        #1e3a5f;
-  --kleur-accent-hover:  #2563a8;
-  --kleur-tekst:         #e5e7eb;
-  --kleur-tekst-zacht:   #9ca3af;
-  --lettertype:          'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --kleur-achtergrond:   #ffffff;
+  --kleur-vlak:          #f9fafb;
+  --kleur-rand:          #e5e7eb;
+  --kleur-accent:        #D4AF37;
+  --kleur-accent-hover:  #7B1B38;
+  --kleur-tekst:         #1A1A1B;
+  --kleur-tekst-zacht:   #4b5563;
+  --lettertype:          'Open Sans', sans-serif;
+  --lettertype-kop:      'Playfair Display', serif;
+  --lettertype-quote:    'Lobster Two', cursive;
   --straal:              6px;
 }
 
@@ -32,9 +34,59 @@ body {
   flex-direction: column;
 }
 
+/* ============================================
+   HOMEPAGINA ACHTERGROND
+   ============================================ */
+body.homepagina-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f3f4f6;
+}
+
+body.homepagina-bg .site-header,
+body.homepagina-bg .site-footer {
+  background-color: rgba(0,0,0,0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.homepagina-bg .header-logo,
+body.homepagina-bg .header-nav,
+body.homepagina-bg .footer-info,
+body.homepagina-bg .footer-copy,
+body.homepagina-bg .hamburger {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+body.homepagina-bg .header-nav a,
+body.homepagina-bg .header-logo a {
+  color: #ffffff;
+}
+
+body.homepagina-bg .hamburger span {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  body.homepagina-bg .header-nav {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--lettertype-kop);
+  color: var(--kleur-accent);
+}
+
+.quote, .review-tekst, blockquote {
+  font-family: var(--lettertype-quote);
 }
 
 /* ============================================
@@ -160,7 +212,8 @@ a {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .error-bericht {
@@ -198,7 +251,8 @@ a {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .pagina-subtitel {
@@ -232,13 +286,14 @@ a {
 
 .knop-primair {
   background-color: var(--kleur-accent);
-  color: #fff;
+  color: #1A1A1B;
   border-color: var(--kleur-accent);
 }
 
 .knop-primair:hover {
   background-color: var(--kleur-accent-hover);
   border-color: var(--kleur-accent-hover);
+  color: #ffffff;
 }
 
 .knop-secundair {
@@ -479,20 +534,24 @@ tr:hover td {
    ============================================ */
 .hero-sectie {
   text-align: center;
-  padding: 60px 20px;
+  padding: 140px 20px;
+  margin-bottom: 30px;
 }
 
 .hero-titel {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 800;
-  color: var(--kleur-tekst);
-  margin-bottom: 10px;
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-ondertitel {
-  font-size: 16px;
-  color: var(--kleur-tekst-zacht);
-  margin-bottom: 28px;
+  font-size: 18px;
+  color: #f3f4f6;
+  margin-bottom: 32px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .hero-knoppen {
@@ -513,7 +572,8 @@ tr:hover td {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .filter-tabs {
@@ -679,7 +739,8 @@ tr:hover td {
 .kaart-titel {
   font-size: 14px;
   font-weight: 700;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .kaart-tekst {
@@ -709,7 +770,8 @@ tr:hover td {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .tickets-subtitel {
@@ -735,7 +797,8 @@ tr:hover td {
 .tickets-lege-titel {
   font-size: 16px;
   margin-bottom: 8px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-accent);
+  font-family: var(--lettertype-kop);
 }
 
 .tickets-lege-tekst {
