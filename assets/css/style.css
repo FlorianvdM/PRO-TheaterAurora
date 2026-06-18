@@ -564,10 +564,6 @@ tr:hover td {
 /* ============================================
    MELDINGEN
    ============================================ */
-.meldingen-sectie {
-  max-width: 860px;
-}
-
 .sectie-titel {
   font-size: 20px;
   font-weight: 700;
@@ -759,13 +755,6 @@ tr:hover td {
 /* ============================================
    TICKETS PAGINA
    ============================================ */
-.tickets-container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
-  margin: 0 auto;
-}
-
 .tickets-titel {
   font-size: 28px;
   font-weight: 600;

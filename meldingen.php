@@ -38,7 +38,7 @@ require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
-    <section class="meldingen-sectie">
+    <div class="container">
       <h1 class="sectie-titel">Meldingen</h1>
 
       <!-- FILTER TABS -->
@@ -65,7 +65,7 @@ require_once 'includes/header.php';
         <?php endif; ?>
       </ul>
 
-    </section>
+    </div>
   </main>
 
 <?php require_once 'includes/footer.php'; ?>

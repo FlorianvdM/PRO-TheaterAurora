@@ -5,7 +5,6 @@
 // ============================================
 
 $paginaTitel = 'Accounts – TheaterAurora Admin';
-$paginaCss = 'assets/css/accounts.css';
 
 // Voorbeelddata – later te vervangen door database-query
 $accounts = [
@@ -28,33 +27,31 @@ require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
-    <section class="accounts-sectie">
+    <div class="container">
 
       <!-- E-MAIL ZOEKBALK -->
-      <form method="GET" action="" class="zoek-formulier">
-        <label for="email" class="zoek-label">E-mail</label>
-        <div class="zoek-rij">
+      <form method="GET" action="" class="filter-form">
+        <div class="filter-group">
           <input
             type="text"
             id="email"
             name="email"
-            class="zoek-input"
+            class="filter-input"
             placeholder="Zoek op e-mailadres..."
             value="<?= htmlspecialchars($zoekEmail) ?>"
           />
-          <button type="submit" class="zoek-knop">Zoeken</button>
         </div>
+        <button type="submit" class="knop knop-primair">Zoeken</button>
       </form>
 
       <!-- OVERZICHT ACCOUNTS TABEL -->
-      <div class="tabel-wrapper">
-        <table class="accounts-tabel">
+        <table>
           <thead>
             <tr>
               <th>ID</th>
               <th>E-mail</th>
               <th>Rol</th>
-              <th class="th-acties">Acties</th>
+              <th>Acties</th>
             </tr>
           </thead>
           <tbody>
@@ -64,11 +61,11 @@ require_once 'includes/header.php';
                   <td><?= htmlspecialchars($account['id']) ?></td>
                   <td><?= htmlspecialchars($account['email']) ?></td>
                   <td><?= htmlspecialchars($account['rol']) ?></td>
-                  <td class="td-acties">
+                  <td class="cel-acties">
                     <a href="account-wijzig.php?id=<?= urlencode($account['id']) ?>"
-                       class="knop knop-wijzig">Wijzig</a>
+                       class="knop-klein knop-klein--wijzig">Wijzig</a>
                     <a href="account-verwijder.php?id=<?= urlencode($account['id']) ?>"
-                       class="knop knop-verwijder"
+                       class="knop-klein knop-klein--verwijder"
                        onclick="return confirm('Weet je zeker dat je dit account wilt verwijderen?')">
                       Verwijder
                     </a>
@@ -83,12 +80,7 @@ require_once 'includes/header.php';
           </tbody>
         </table>
 
-        <?php if (empty($accounts)): ?>
-          <p class="tabel-leeg-label">Overzicht accounts</p>
-        <?php endif; ?>
-      </div>
-
-    </section>
+    </div>
   </main>
 
 <?php require_once 'includes/footer.php'; ?>

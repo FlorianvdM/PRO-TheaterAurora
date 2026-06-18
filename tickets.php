@@ -4,7 +4,7 @@ require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
-    <div class="tickets-container">
+    <div class="container">
       <h1 class="tickets-titel">Jouw Tickets</h1>
       <p class="tickets-subtitel">Hier zie je een overzicht van al je bestelde en gereserveerde tickets.</p>
 

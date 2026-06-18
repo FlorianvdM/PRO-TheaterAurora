@@ -53,6 +53,7 @@ require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
+    <div class="container">
 
     <!-- ZOEKBALK -->
     <form method="GET" action="voorstellingen.php" class="zoek-formulier">
@@ -99,6 +100,7 @@ require_once 'includes/header.php';
       <?php endif; ?>
     </div>
 
+    </div>
   </main>
 
 <?php require_once 'includes/footer.php'; ?>
