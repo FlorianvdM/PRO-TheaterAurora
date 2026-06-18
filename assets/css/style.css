@@ -481,13 +481,19 @@ table {
   border-collapse: collapse;
   background-color: var(--kleur-vlak);
   border: 1px solid var(--kleur-rand);
-  border-radius: var(--straal);
-  overflow: hidden;
   font-size: 13px;
 }
 
 thead {
   background-color: var(--kleur-achtergrond);
+}
+
+thead tr:first-child th:first-child {
+  border-top-left-radius: var(--straal);
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: var(--straal);
 }
 
 th {
@@ -511,8 +517,17 @@ tr:last-child td {
   border-bottom: none;
 }
 
+tr:last-child td:first-child {
+  border-bottom-left-radius: var(--straal);
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: var(--straal);
+}
+
 tr:hover td {
-  background-color: #1e2a3a;
+  background-color: var(--kleur-accent-hover);
+  color: #ffffff;
 }
 
 .lege-rij td {
@@ -538,8 +553,13 @@ tr:hover td {
 
 .cel-acties {
   white-space: nowrap;
+}
+
+.cel-acties-inner {
   display: flex;
+  align-items: center;
   gap: 6px;
+  min-height: 44px;
 }
 
 /* ============================================
@@ -898,7 +918,7 @@ tr:hover td {
     padding: 8px 6px;
   }
 
-  .cel-acties {
+  .cel-acties-inner {
     flex-direction: column;
     gap: 4px;
   }

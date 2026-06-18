@@ -169,8 +169,10 @@ require_once __DIR__ . '/includes/header.php';
                 </td>
                 <td class="cel-datum"><?php echo date('d-m-Y', strtotime($m['Datumaangemaakt'])); ?></td>
                 <td class="cel-acties">
-                  <a href="medewerker-wijzigen.php?id=<?php echo $m['Id']; ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
-                  <a href="medewerker-verwijderen.php?id=<?php echo $m['Id']; ?>" class="knop-klein knop-klein--verwijder" onclick="return bevestigVerwijderen('<?php echo htmlspecialchars($m['Voornaam'] . ' ' . ($m['Tussenvoegsel'] ? $m['Tussenvoegsel'] . ' ' : '') . $m['Achternaam']); ?>')">Verwijder</a>
+                  <div class="cel-acties-inner">
+                    <a href="medewerker-wijzigen.php?id=<?php echo $m['Id']; ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
+                    <a href="medewerker-verwijderen.php?id=<?php echo $m['Id']; ?>" class="knop-klein knop-klein--verwijder" onclick="return bevestigVerwijderen('<?php echo htmlspecialchars($m['Voornaam'] . ' ' . ($m['Tussenvoegsel'] ? $m['Tussenvoegsel'] . ' ' : '') . $m['Achternaam']); ?>')">Verwijder</a>
+                  </div>
                 </td>
               </tr>
             <?php endforeach; ?>
