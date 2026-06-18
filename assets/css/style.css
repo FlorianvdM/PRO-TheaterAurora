@@ -735,6 +735,19 @@ tr:hover td {
   border-color: var(--kleur-accent-hover);
 }
 
+.zoek-plus-knop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.zoek-plus-knop .zoek-formulier {
+  flex: 1;
+  margin-bottom: 0;
+  max-width: 800px;
+}
+
 /* ============================================
    KAARTEN RASTER (VOORSTELLINGEN)
    ============================================ */
@@ -827,6 +840,12 @@ tr:hover td {
   font-size: 12px;
   color: var(--kleur-tekst-zacht);
   line-height: 1.6;
+}
+
+.kaart-datum-tijd {
+  font-size: 11px;
+  color: var(--kleur-accent);
+  font-weight: 600;
 }
 
 .geen-resultaten {

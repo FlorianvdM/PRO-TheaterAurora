@@ -1,52 +1,26 @@
 <?php
-// ============================================
-// voorstellingen.php
-// TheaterAurora – Voorstellingen overzicht
-// ============================================
+
+require_once __DIR__ . '/includes/db.php';
+
+session_start();
+require_once __DIR__ . '/includes/toegang.php';
 
 $paginaTitel = 'Voorstellingen – TheaterAurora';
 
-// Voorbeelddata – later te vervangen door database-query
-$voorstellingen = [
-  [
-    'id'          => 1,
-    'titel'       => 'De Storm',
-    'beschrijving'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'afbeelding'  => 'assets/images/voorstelling-1.jpg',
-  ],
-  [
-    'id'          => 2,
-    'titel'       => 'Hamlet',
-    'beschrijving'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'afbeelding'  => 'assets/images/voorstelling-2.jpg',
-  ],
-  [
-    'id'          => 3,
-    'titel'       => 'Othello',
-    'beschrijving'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'afbeelding'  => 'assets/images/voorstelling-3.jpg',
-  ],
-  [
-    'id'          => 4,
-    'titel'       => 'Macbeth',
-    'beschrijving'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'afbeelding'  => 'assets/images/voorstelling-4.jpg',
-  ],
-  [
-    'id'          => 5,
-    'titel'       => 'Romeo & Julia',
-    'beschrijving'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'afbeelding'  => 'assets/images/voorstelling-5.jpg',
-  ],
-];
-
-// Zoekfilter op titel
 $zoekTerm = trim($_GET['zoeken'] ?? '');
-if ($zoekTerm !== '') {
-  $voorstellingen = array_filter(
-    $voorstellingen,
-    fn($v) => str_contains(strtolower($v['titel']), strtolower($zoekTerm))
-  );
+
+$voorstellingen = [];
+if ($pdo !== null) {
+    $sql = 'SELECT * FROM Voorstelling WHERE Isactief = 1';
+    $params = [];
+    if ($zoekTerm !== '') {
+        $sql .= ' AND Naam LIKE :zoekterm';
+        $params[':zoekterm'] = "%{$zoekTerm}%";
+    }
+    $sql .= ' ORDER BY Datum DESC, Tijd DESC';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $voorstellingen = $stmt->fetchAll();
 }
 
 require_once 'includes/header.php';
@@ -55,17 +29,21 @@ require_once 'includes/header.php';
   <main class="main-content">
     <div class="container">
 
-    <!-- ZOEKBALK -->
-    <form method="GET" action="voorstellingen.php" class="zoek-formulier">
-      <input
-        type="text"
-        name="zoeken"
-        class="zoek-input"
-        placeholder="Zoeken"
-        value="<?= htmlspecialchars($zoekTerm) ?>"
-      />
-    </form>
-
+    <!-- ZOEKBALK + NIEUWE KNOP -->
+    <div class="zoek-plus-knop">
+      <form method="GET" action="voorstellingen.php" class="zoek-formulier">
+        <input
+          type="text"
+          name="zoeken"
+          class="zoek-input"
+          placeholder="Zoeken"
+          value="<?= htmlspecialchars($zoekTerm) ?>"
+        />
+      </form>
+      <?php if (isset($_SESSION['rol']) && in_array($_SESSION['rol'], ['Admin', 'Medewerker'])): ?>
+        <a href="voorstelling-toevoegen.php" class="knop knop-primair">Nieuwe voorstelling</a>
+      <?php endif; ?>
+    </div>
 
     <!-- KAARTEN RASTER -->
     <div class="kaarten-raster">
@@ -73,25 +51,20 @@ require_once 'includes/header.php';
         <?php foreach ($voorstellingen as $voorstelling): ?>
           <article class="kaart">
             <div class="kaart-afbeelding">
-              <?php if (!empty($voorstelling['afbeelding']) && file_exists($voorstelling['afbeelding'])): ?>
-                <img
-                  src="<?= htmlspecialchars($voorstelling['afbeelding']) ?>"
-                  alt="<?= htmlspecialchars($voorstelling['titel']) ?>"
-                />
-              <?php else: ?>
-                <!-- Placeholder als afbeelding ontbreekt -->
-                <div class="afbeelding-placeholder">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="1" width="98" height="98" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                    <line x1="1" y1="1" x2="99" y2="99" stroke="currentColor" stroke-width="1.5"/>
-                    <line x1="99" y1="1" x2="1" y2="99" stroke="currentColor" stroke-width="1.5"/>
-                  </svg>
-                </div>
-              <?php endif; ?>
+              <div class="afbeelding-placeholder">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="98" height="98" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="1" y1="1" x2="99" y2="99" stroke="currentColor" stroke-width="1.5"/>
+                  <line x1="99" y1="1" x2="1" y2="99" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </div>
             </div>
             <div class="kaart-inhoud">
-              <h2 class="kaart-titel"><?= htmlspecialchars($voorstelling['titel']) ?></h2>
-              <p class="kaart-tekst"><?= htmlspecialchars($voorstelling['beschrijving']) ?></p>
+              <h2 class="kaart-titel"><?= htmlspecialchars($voorstelling['Naam']) ?></h2>
+              <p class="kaart-tekst"><?= htmlspecialchars($voorstelling['Beschrijving'] ?? '') ?></p>
+              <p class="kaart-datum-tijd">
+                <?= date('d-m-Y', strtotime($voorstelling['Datum'])) ?> om <?= date('H:i', strtotime($voorstelling['Tijd'])) ?>
+              </p>
             </div>
           </article>
         <?php endforeach; ?>
