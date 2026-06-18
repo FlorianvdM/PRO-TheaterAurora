@@ -3,12 +3,12 @@ theater_aurora;
 
 INSERT INTO Gebruiker (Voornaam, Tussenvoegsel, Achternaam, Gebruikersnaam, Wachtwoord, IsIngelogd, Isactief, Opmerking,
                        Datumaangemaakt, Datumgewijzigd)
-VALUES ('Jan', 'van', 'Dijk', 'jvdijk', 'wachtwoord123', 0, 1, 'Directeur', NOW(), NOW()),
-       ('Marieke', NULL, 'de Vries', 'mdevries', 'wachtwoord123', 0, 1, 'Administratief medewerker', NOW(), NOW()),
-       ('Peter', NULL, 'Bakker', 'pbakker', 'wachtwoord123', 0, 1, 'Technisch medewerker', NOW(), NOW()),
-       ('Sandra', 'de', 'Wit', 'sdewit', 'wachtwoord123', 0, 1, 'Horeca medewerker', NOW(), NOW()),
-       ('Ahmed', NULL, 'Al-Hassan', 'aalhassan', 'wachtwoord123', 0, 1, 'Schoonmaak medewerker', NOW(), NOW()),
-       ('Lisa', 'van der', 'Meer', 'lvandermeer', 'wachtwoord123', 0, 1, 'Bezoeker', NOW(), NOW());
+VALUES ('Jan', 'van', 'Dijk', 'jvdijk', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Directeur', NOW(), NOW()),
+       ('Marieke', NULL, 'de Vries', 'mdevries', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Administratief medewerker', NOW(), NOW()),
+       ('Peter', NULL, 'Bakker', 'pbakker', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Technisch medewerker', NOW(), NOW()),
+       ('Sandra', 'de', 'Wit', 'sdewit', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Horeca medewerker', NOW(), NOW()),
+       ('Ahmed', NULL, 'Al-Hassan', 'aalhassan', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Schoonmaak medewerker', NOW(), NOW()),
+       ('Lisa', 'van der', 'Meer', 'lvandermeer', '$2y$12$le6pgRSTtObaO.TJ2S27Duw8k4xKF4DibgdfWUd4594TT7ec3GcWu', 0, 1, 'Bezoeker', NOW(), NOW());
 
 INSERT INTO Contact (GebruikerId, Email, Mobiel, Isactief, Opmerking, Datumaangemaakt, Datumgewijzigd)
 VALUES (1, 'jan.vandijk@theateraurora.nl', '0612345678', 1, NULL, NOW(), NOW()),

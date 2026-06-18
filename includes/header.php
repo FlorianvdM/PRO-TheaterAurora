@@ -1,4 +1,5 @@
 <?php
+session_start();
 // ============================================
 // includes/header.php
 // TheaterAurora – Globale header include
@@ -64,6 +65,13 @@ if ($pdo === null) {
         <li><a href="tickets.php">Tickets</a></li>
         <li><a href="accounts.php">Accounts</a></li>
         <li><a href="meldingen.php">Meldingen</a></li>
+        <li>
+          <?php if (isset($_SESSION['gebruiker_id'])): ?>
+            <a href="logout.php">Uitloggen (<?= htmlspecialchars($_SESSION['gebruikersnaam']) ?>)</a>
+          <?php else: ?>
+            <a href="login.php">Inloggen</a>
+          <?php endif; ?>
+        </li>
       </ul>
     </nav>
   </header>
