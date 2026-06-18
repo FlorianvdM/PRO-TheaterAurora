@@ -20,12 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gebruikersnaam']) && 
     }
 }
 
-$stmt = $pdo->query('
-    SELECT g.Id, g.Gebruikersnaam, g.Voornaam, g.Tussenvoegsel, g.Achternaam, COALESCE(r.Naam, "Geen rol") AS Rol
+$stmt = $pdo->query("
+    SELECT g.Id, g.Gebruikersnaam, g.Voornaam, g.Tussenvoegsel, g.Achternaam, r.Naam AS Rol
     FROM Gebruiker g
     LEFT JOIN Rol r ON r.GebruikerId = g.Id AND r.Isactief = 1
-    ORDER BY FIELD(r.Naam, "Admin", "Medewerker", "Bezoeker"), g.Achternaam
-');
+    WHERE g.Gebruikersnaam IN ('jvdijk', 'mdevries', 'lvandermeer')
+    ORDER BY FIELD(g.Gebruikersnaam, 'jvdijk', 'mdevries', 'lvandermeer')
+");
 $gebruikers = $stmt->fetchAll();
 
 $paginaTitel = 'Demo – Kies een rol';
