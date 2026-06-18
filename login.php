@@ -6,11 +6,11 @@ require_once __DIR__ . '/includes/db.php';
 $paginaTitel = 'Inloggen – TheaterAurora';
 $error = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Formulier ingediend
     $gebruikersnaam = trim($_POST['gebruikersnaam'] ?? '');
     $wachtwoord = $_POST['wachtwoord'] ?? '';
 
-    if (empty($gebruikersnaam) || empty($wachtwoord)) {
+    if (empty($gebruikersnaam) || empty($wachtwoord)) { // Validatie
         $error = 'Vul alle velden in.';
     } elseif ($pdo === null) {
         $error = 'DataBase niet verbonden';
@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([':gebruikersnaam' => $gebruikersnaam]);
         $gebruiker = $stmt->fetch();
 
-        if ($gebruiker && password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
+        if ($gebruiker && password_verify($wachtwoord, $gebruiker['Wachtwoord'])) { // Inloggen gelukt
             if (!$gebruiker['Isactief']) {
                 $error = 'Account is gedeactiveerd.';
-            } else {
+            } else { // Sessie aanmaken
                 $stmt = $pdo->prepare('UPDATE Gebruiker SET IsIngelogd = 1, Ingelogd = NOW() WHERE Id = :id');
                 $stmt->execute([':id' => $gebruiker['Id']]);
 

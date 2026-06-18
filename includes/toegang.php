@@ -1,6 +1,6 @@
 <?php
 // toegang.php – Rol-gebaseerde toegangscontrole helpers
-function heeftToegang($toegestaneRollen = [])
+function heeftToegang($toegestaneRollen = []) // Check of gebruiker toegang heeft
 {
     if (empty($toegestaneRollen)) {
         return true;
@@ -11,13 +11,13 @@ function heeftToegang($toegestaneRollen = [])
     return in_array($_SESSION['rol'], $toegestaneRollen);
 }
 
-function vereistToegang($toegestaneRollen = [])
+function vereistToegang($toegestaneRollen = []) // Redirect als geen toegang
 {
-    if (!isset($_SESSION['gebruiker_id'])) {
+    if (!isset($_SESSION['gebruiker_id'])) { // Niet ingelogd
         header('Location: login.php');
         exit;
     }
-    if (!heeftToegang($toegestaneRollen)) {
+    if (!heeftToegang($toegestaneRollen)) { // Onvoldoende rechten
         header('Location: index.php');
         exit;
     }

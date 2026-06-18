@@ -17,6 +17,7 @@ $zoekterm = $_GET['zoeken'] ?? '';
 $filterSoort = $_GET['soort'] ?? '';
 $filterStatus = $_GET['status'] ?? '';
 
+// Query medewerkers met zoek/filter
 $sql = 'SELECT m.*, g.Voornaam, g.Tussenvoegsel, g.Achternaam, g.Gebruikersnaam,
                c.Email, c.Mobiel, r.Naam AS RolNaam
         FROM Medewerker m
@@ -54,7 +55,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $medewerkers = $stmt->fetchAll();
 
-$stmtSoorten = $pdo->query('SELECT DISTINCT Medewerkersoort FROM Medewerker ORDER BY Medewerkersoort');
+$stmtSoorten = $pdo->query('SELECT DISTINCT Medewerkersoort FROM Medewerker ORDER BY Medewerkersoort'); // Statistieken berekenen
 $soorten = $stmtSoorten->fetchAll(PDO::FETCH_COLUMN);
 
 $aantalActief = 0;

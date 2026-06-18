@@ -9,17 +9,17 @@ vereistToegang(['Admin', 'Medewerker']);
 $paginaTitel = 'Nieuwe melding';
 $error = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Formulier verzonden
     $type = $_POST['type'] ?? '';
     $bericht = $_POST['bericht'] ?? '';
     $opmerking = $_POST['opmerking'] ?? '';
 
-    if (empty($type) || empty($bericht)) {
+    if (empty($type) || empty($bericht)) { // Validatie
         $error = 'Vul alle verplichte velden in.';
     } elseif ($pdo === null) {
         $error = 'DataBase niet verbonden';
     } else {
-        try {
+        try { // Auto-nummering + INSERT
             $stmt = $pdo->query('SELECT COALESCE(MAX(Nummer), 1000) + 1 FROM Melding');
             $nummer = $stmt->fetchColumn();
 

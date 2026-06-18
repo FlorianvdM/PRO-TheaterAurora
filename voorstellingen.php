@@ -9,11 +9,11 @@ $paginaTitel = 'Voorstellingen – TheaterAurora';
 
 $zoekTerm = trim($_GET['zoeken'] ?? '');
 
-$voorstellingen = [];
+$voorstellingen = []; // Query actieve voorstellingen uit database
 if ($pdo !== null) {
     $sql = 'SELECT * FROM Voorstelling WHERE Isactief = 1';
     $params = [];
-    if ($zoekTerm !== '') {
+    if ($zoekTerm !== '') { // Filter op naam
         $sql .= ' AND Naam LIKE :zoekterm';
         $params[':zoekterm'] = "%{$zoekTerm}%";
     }

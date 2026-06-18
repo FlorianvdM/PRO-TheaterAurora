@@ -3,7 +3,7 @@
 session_start();
 require_once __DIR__ . '/includes/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gebruikersnaam']) && $pdo !== null) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gebruikersnaam']) && $pdo !== null) { // Demo login actie
     $gebruikersnaam = $_POST['gebruikersnaam'];
     $stmt = $pdo->prepare('SELECT Id, Gebruikersnaam, Wachtwoord, Isactief FROM Gebruiker WHERE Gebruikersnaam = :g');
     $stmt->execute([':g' => $gebruikersnaam]);
@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['gebruikersnaam']) && 
     }
 }
 
-$stmt = $pdo->query("
-    SELECT g.Id, g.Gebruikersnaam, g.Voornaam, g.Tussenvoegsel, g.Achternaam, r.Naam AS Rol
+// Query 1 gebruiker per rol (Admin, Medewerker, Bezoeker)
+$stmt = $pdo->query("SELECT g.Id, g.Gebruikersnaam, g.Voornaam, g.Tussenvoegsel, g.Achternaam, r.Naam AS Rol
     FROM Gebruiker g
     LEFT JOIN Rol r ON r.GebruikerId = g.Id AND r.Isactief = 1
     WHERE g.Gebruikersnaam IN ('jvdijk', 'mdevries', 'lvandermeer')

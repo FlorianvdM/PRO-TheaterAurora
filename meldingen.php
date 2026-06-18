@@ -26,7 +26,7 @@ if (!array_key_exists($actiefFilter, $filterOpties)) {
   $actiefFilter = 'alle';
 }
 
-// Meldingen ophalen uit database
+// Meldingen ophalen uit database (met optionele filter)
 $meldingen = [];
 if ($pdo !== null) {
   try {

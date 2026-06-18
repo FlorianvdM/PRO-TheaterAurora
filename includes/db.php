@@ -5,7 +5,7 @@ $dbNaam = 'theater_aurora';
 $dbGebruiker = 'root';
 $dbWachtwoord = '';
 
-try {
+try { // PDO verbinding opzetten met exception mode
     $pdo = new PDO(
         "mysql:host={$dbHost};charset=utf8mb4",
         $dbGebruiker,

@@ -9,7 +9,7 @@ vereistToegang(['Admin', 'Medewerker']);
 $paginaTitel = 'Nieuwe voorstelling';
 $error = null;
 
-$medewerkers = [];
+$medewerkers = []; // Medewerkers ophalen voor dropdown
 if ($pdo !== null) {
     $stmt = $pdo->query('
         SELECT m.Id, g.Voornaam, g.Tussenvoegsel, g.Achternaam
@@ -21,7 +21,7 @@ if ($pdo !== null) {
     $medewerkers = $stmt->fetchAll();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Formulier verzonden
     $medewerkerId = $_POST['medewerker_id'] ?? '';
     $naam = $_POST['naam'] ?? '';
     $beschrijving = $_POST['beschrijving'] ?? '';
@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $beschikbaarheid = $_POST['beschikbaarheid'] ?? '';
     $opmerking = $_POST['opmerking'] ?? '';
 
-    if (empty($medewerkerId) || empty($naam) || empty($datum) || empty($tijd) || empty($maxAantalTickets) || empty($beschikbaarheid)) {
+    if (empty($medewerkerId) || empty($naam) || empty($datum) || empty($tijd) || empty($maxAantalTickets) || empty($beschikbaarheid)) { // Validatie
         $error = 'Vul alle verplichte velden in.';
     } elseif ($pdo === null) {
         $error = 'DataBase niet verbonden';
     } else {
-        try {
+        try { // INSERT in database
             $stmt = $pdo->prepare('
                 INSERT INTO Voorstelling (MedewerkerId, Naam, Beschrijving, Datum, Tijd, MaxAantalTickets, Beschikbaarheid, Isactief, Opmerking, Datumaangemaakt, Datumgewijzigd)
                 VALUES (:medewerkerId, :naam, :beschrijving, :datum, :tijd, :maxAantalTickets, :beschikbaarheid, 1, :opmerking, NOW(6), NOW(6))

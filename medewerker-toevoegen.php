@@ -13,7 +13,7 @@ vereistToegang(['Admin']);
 $paginaTitel = 'Nieuwe medewerker';
 $error = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Formulier verzonden
     $voornaam = $_POST['voornaam'] ?? '';
     $tussenvoegsel = $_POST['tussenvoegsel'] ?? '';
     $achternaam = $_POST['achternaam'] ?? '';
@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $medewerkersoort = $_POST['medewerkersoort'] ?? '';
     $rol = $_POST['rol'] ?? '';
 
-    if (empty($voornaam) || empty($achternaam) || empty($gebruikersnaam) || empty($wachtwoord) || empty($email) || empty($mobiel) || empty($medewerkersoort) || empty($rol)) {
+    if (empty($voornaam) || empty($achternaam) || empty($gebruikersnaam) || empty($wachtwoord) || empty($email) || empty($mobiel) || empty($medewerkersoort) || empty($rol)) { // Validatie
         $error = 'Vul alle verplichte velden in.';
     } elseif ($pdo === null) {
         $error = 'DataBase niet verbonden';
     } else {
-        try {
+        try { // 4-tabel transactie
             $pdo->beginTransaction();
 
             // 1. Insert Gebruiker

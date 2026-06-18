@@ -8,7 +8,7 @@ if (isset($_SESSION['gebruiker_id']) && $pdo !== null) {
     $stmt->execute([':id' => $_SESSION['gebruiker_id']]);
 }
 
-$_SESSION = [];
+$_SESSION = []; // Sessie leegmaken en vernietigen
 session_destroy();
 
 header('Location: index.php');

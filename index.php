@@ -5,12 +5,12 @@
 // ============================================
 
 $paginaTitel = 'Theater Aurora – Waar toneelstukken echt tot leven komen';
-$bodyClass = 'homepagina-bg';
+$bodyClass = 'homepagina-bg'; // Hero achtergrond op homepage
 require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
-    <section class="hero-sectie">
+    <section class="hero-sectie"> <!-- Hero banner -->
       <h1 class="hero-titel">Theater Aurora</h1>
       <p class="hero-ondertitel">Waar toneelstukken echt tot leven komen</p>
       <div class="hero-knoppen">

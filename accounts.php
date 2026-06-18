@@ -18,7 +18,7 @@ $accounts = [
   ['id' => 4, 'email' => 'sara.de.wit@theater.nl', 'rol' => 'Medewerker'],
 ];
 
-// Zoekfilter op e-mail
+// Zoekfilter op e-mail (filtert mock data)
 $zoekEmail = trim($_GET['email'] ?? '');
 if ($zoekEmail !== '') {
   $accounts = array_filter(
