@@ -1,4 +1,5 @@
 <?php
+// medewerker-toevoegen.php – Nieuw medewerker formulier (Admin)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();

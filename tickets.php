@@ -1,4 +1,5 @@
 <?php
+// tickets.php – Ticket overzicht
 $paginaTitel = 'Tickets – TheaterAurora';
 require_once 'includes/header.php';
 ?>

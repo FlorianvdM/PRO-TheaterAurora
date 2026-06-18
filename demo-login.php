@@ -1,4 +1,5 @@
 <?php
+// demo-login.php – Presentatie tool: één-klik login per rol
 session_start();
 require_once __DIR__ . '/includes/db.php';
 

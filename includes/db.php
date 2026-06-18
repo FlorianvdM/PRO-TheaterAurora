@@ -1,5 +1,5 @@
 <?php
-
+// db.php – Database verbinding (PDO)
 $dbHost = 'localhost:3307';
 $dbNaam = 'theater_aurora';
 $dbGebruiker = 'root';

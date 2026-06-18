@@ -1,5 +1,5 @@
 <?php
-
+// voorstellingen.php – Voorstellingen overzicht
 require_once __DIR__ . '/includes/db.php';
 
 session_start();

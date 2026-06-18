@@ -1,4 +1,5 @@
 <?php
+// voorstelling-toevoegen.php – Nieuw voorstelling formulier (Admin/Medewerker)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();

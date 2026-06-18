@@ -1,5 +1,5 @@
 <?php
-
+// medewerker.php – Medewerker overzicht (Admin)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();

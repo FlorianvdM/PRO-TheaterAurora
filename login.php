@@ -1,4 +1,5 @@
 <?php
+// login.php – Inlogformulier met wachtwoord verificatie
 session_start();
 require_once __DIR__ . '/includes/db.php';
 

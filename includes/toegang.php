@@ -1,4 +1,5 @@
 <?php
+// toegang.php – Rol-gebaseerde toegangscontrole helpers
 function heeftToegang($toegestaneRollen = [])
 {
     if (empty($toegestaneRollen)) {

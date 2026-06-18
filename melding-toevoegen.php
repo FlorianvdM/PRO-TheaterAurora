@@ -1,4 +1,5 @@
 <?php
+// melding-toevoegen.php – Nieuw melding formulier (Admin/Medewerker)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();
