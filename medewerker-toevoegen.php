@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($voornaam) || empty($achternaam) || empty($gebruikersnaam) || empty($wachtwoord) || empty($email) || empty($mobiel) || empty($medewerkersoort) || empty($rol)) {
         $error = 'Vul alle verplichte velden in.';
+    } elseif ($pdo === null) {
+        $error = 'DataBase niet verbonden';
     } else {
         try {
             $pdo->beginTransaction();
