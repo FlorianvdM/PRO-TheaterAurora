@@ -14,7 +14,7 @@ require_once 'includes/header.php';
       <h1 class="hero-titel">Theater Aurora</h1>
       <p class="hero-ondertitel">Waar toneelstukken echt tot leven komen</p>
       <div class="hero-knoppen">
-        <a href="reservering.php" class="knop knop-primair">Koop je tickets</a>
+        <a href="tickets.php" class="knop knop-primair">Koop je tickets</a>
         <a href="voorstellingen.php" class="knop knop-secundair">Zie voorstellingen</a>
       </div>
     </section>
