@@ -138,7 +138,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-nav a:hover {
-  color: var(--kleur-accent-hover);
+  background-color: var(--kleur-accent);
+  color: #ffffff;
+  border-radius: var(--straal);
+  padding: 4px 12px;
+  margin: -4px -12px;
 }
 
 /* Hamburger menu */
@@ -291,8 +295,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .knop-primair:hover {
-  background-color: var(--kleur-accent-hover);
-  border-color: var(--kleur-accent-hover);
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
   color: #ffffff;
 }
 
@@ -302,8 +306,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .knop-secundair:hover {
-  border-color: var(--kleur-accent-hover);
-  color: var(--kleur-tekst);
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
 }
 
 .knop-klein {
@@ -323,8 +328,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .knop-klein--wijzig:hover {
-  border-color: var(--kleur-accent-hover);
-  color: #fff;
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
 }
 
 .knop-klein--verwijder {
@@ -334,9 +340,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .knop-klein--verwijder:hover {
-  background-color: #7f1d1d;
-  border-color: #f87171;
-  color: #fff;
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
 }
 
 /* ============================================
@@ -527,8 +533,9 @@ tr:last-child td:last-child {
   border-bottom-right-radius: var(--straal);
 }
 
+tr:hover th,
 tr:hover td {
-  background-color: var(--kleur-accent-hover);
+  background-color: var(--kleur-accent);
   color: #ffffff;
 }
 
@@ -659,8 +666,9 @@ tr:hover td {
 }
 
 .tab:hover {
-  border-color: var(--kleur-accent-hover);
-  color: var(--kleur-tekst);
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
 }
 
 .tab.actief {
@@ -689,8 +697,9 @@ tr:hover td {
 }
 
 .melding-item:hover {
-  border-color: var(--kleur-accent-hover);
-  background-color: #253347;
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
 }
 
 .melding-item.verborgen {
@@ -760,7 +769,14 @@ tr:hover td {
 }
 
 .kaart:hover {
-  border-color: var(--kleur-accent-hover);
+  background-color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
+  color: #ffffff;
+}
+
+.kaart:hover .kaart-titel,
+.kaart:hover .kaart-tekst {
+  color: #ffffff;
 }
 
 .kaart-afbeelding {
