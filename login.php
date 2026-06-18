@@ -57,6 +57,9 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <button type="submit" class="knop knop-primair">Inloggen</button>
         </form>
+        <p style="margin-top: 16px; text-align: center; font-size: 13px; color: var(--kleur-tekst-zacht);">
+          <a href="demo-login.php" style="color: var(--kleur-accent);">Demo: direct inloggen met een rol</a>
+        </p>
     </div>
 </main>
 
