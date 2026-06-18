@@ -63,8 +63,13 @@ if ($pdo === null) {
         <li><a href="index.php">Home</a></li>
         <li><a href="voorstellingen.php">Voorstellingen</a></li>
         <li><a href="tickets.php">Tickets</a></li>
-        <li><a href="accounts.php">Accounts</a></li>
-        <li><a href="meldingen.php">Meldingen</a></li>
+        <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Admin'): ?>
+          <li><a href="accounts.php">Accounts</a></li>
+          <li><a href="medewerker.php">Medewerkers</a></li>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['rol']) && in_array($_SESSION['rol'], ['Admin', 'Medewerker'])): ?>
+          <li><a href="meldingen.php">Meldingen</a></li>
+        <?php endif; ?>
         <li>
           <?php if (isset($_SESSION['gebruiker_id'])): ?>
             <a href="logout.php">Uitloggen (<?= htmlspecialchars($_SESSION['gebruikersnaam']) ?>)</a>

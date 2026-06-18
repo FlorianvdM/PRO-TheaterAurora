@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . '/includes/db.php';
 
+session_start();
+require_once __DIR__ . '/includes/toegang.php';
+vereistToegang(['Admin']);
+
 // Zorg dat de header pas wordt geladen na eventuele redirect of foutafhandeling
 // Echter, db.php wordt al aangeroepen in header.php, dus als pdo null is,
 // toont header.php al een foutmelding.

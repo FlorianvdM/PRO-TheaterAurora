@@ -25,8 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt = $pdo->prepare('UPDATE Gebruiker SET IsIngelogd = 1, Ingelogd = NOW() WHERE Id = :id');
                 $stmt->execute([':id' => $gebruiker['Id']]);
 
+                $stmt = $pdo->prepare('SELECT Naam FROM Rol WHERE GebruikerId = :id AND Isactief = 1');
+                $stmt->execute([':id' => $gebruiker['Id']]);
+                $rol = $stmt->fetchColumn();
+
                 $_SESSION['gebruiker_id'] = $gebruiker['Id'];
                 $_SESSION['gebruikersnaam'] = $gebruiker['Gebruikersnaam'];
+                $_SESSION['rol'] = $rol ?: 'Bezoeker';
 
                 header('Location: index.php');
                 exit;
