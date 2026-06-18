@@ -788,7 +788,8 @@ tr:hover td {
 }
 
 .kaart:hover .kaart-titel,
-.kaart:hover .kaart-tekst {
+.kaart:hover .kaart-tekst,
+.kaart:hover .kaart-datum-tijd {
   color: #ffffff;
 }
 
