@@ -32,3 +32,11 @@ VALUES (1, 1001, 'Directie', 1, 'Algehele leiding', NOW(), NOW()),
        (3, 1003, 'Techniek', 1, 'Geluid en licht', NOW(), NOW()),
        (4, 1004, 'Horeca', 1, 'Foyer en catering', NOW(), NOW()),
        (5, 1005, 'Schoonmaak', 1, 'Onderhoud en schoonmaak', NOW(), NOW());
+
+INSERT INTO Bezoeker (GebruikerId, Relatienummer, Isactief, Opmerking, Datumaangemaakt, Datumgewijzigd)
+VALUES (6, 1000, 1, NULL, NOW(), NOW());
+
+INSERT INTO Prijs (Tarief, Isactief, Opmerking, Datumaangemaakt, Datumgewijzigd)
+VALUES (15.00, 1, NULL, NOW(), NOW()),
+       (10.00, 1, NULL, NOW(), NOW()),
+       (7.50, 1, NULL, NOW(), NOW());
