@@ -49,7 +49,7 @@ require_once 'includes/header.php';
       </form>
 
       <!-- OVERZICHT ACCOUNTS TABEL -->
-        <table>
+        <div class="table-container"><table>
           <thead>
             <tr>
               <th>ID</th>
@@ -82,7 +82,7 @@ require_once 'includes/header.php';
               </tr>
             <?php endif; ?>
           </tbody>
-        </table>
+        </table></div>
 
     </div>
   </main>

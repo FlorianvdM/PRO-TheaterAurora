@@ -1,7 +1,29 @@
 // ============================================
-// assets/js/script.js
-// TheaterAurora – Alle scripts
+// script.js – Alle scripts
 // ============================================
+
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('header-nav');
+
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !hamburger.contains(e.target) && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+});
 
 // Meldingen tab filtering
 document.addEventListener('DOMContentLoaded', () => {

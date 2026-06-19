@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
+  .hamburger { display: flex; z-index: 110; }
   .site-header { position: relative; }
   .header-nav {
     position: absolute;
@@ -182,8 +182,9 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid var(--kleur-rand);
     max-height: 0; overflow: hidden;
     transition: max-height 0.3s ease;
+    z-index: 100;
   }
-  .header-nav.open { max-height: 300px; }
+  .header-nav.open { max-height: 100vh; }
   .header-nav ul {
     flex-direction: column; gap: 0;
     padding: 10px 20px;
@@ -613,6 +614,12 @@ tr:hover td {
   margin-bottom: 30px;
 }
 
+@media (max-width: 480px) {
+  .hero-sectie { padding: 80px 16px; }
+  .hero-titel { font-size: 32px; }
+  .hero-ondertitel { font-size: 15px; }
+}
+
 .hero-titel {
   font-size: 48px;
   font-weight: 800;
@@ -910,6 +917,8 @@ tr:hover td {
   padding: 10px 20px;
   background-color: var(--kleur-achtergrond);
   border-top: 1px solid var(--kleur-rand);
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .footer-info,
@@ -924,6 +933,11 @@ tr:hover td {
 /* ============================================
    RESPONSIVE
    ============================================ */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 768px) {
   .pagina-header {
     flex-direction: column;

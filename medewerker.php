@@ -133,6 +133,7 @@ require_once __DIR__ . '/includes/header.php';
           <a href="medewerker.php" class="knop knop-secundair">Reset</a>
         <?php endif; ?>
       </form>
+      <div class="table-container">
       <table>
         <thead>
           <tr>
@@ -184,6 +185,7 @@ require_once __DIR__ . '/includes/header.php';
           <?php endif; ?>
         </tbody>
       </table>
+      </div>
     </div>
   </main>
 
