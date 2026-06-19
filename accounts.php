@@ -1,8 +1,6 @@
 <?php
-// ============================================
-// accounts.php
-// TheaterAurora – Accounts overzicht (admin)
-// ============================================
+
+require_once __DIR__ . '/includes/db.php';
 
 session_start();
 require_once __DIR__ . '/includes/toegang.php';
@@ -10,28 +8,42 @@ vereistToegang(['Admin']);
 
 $paginaTitel = 'Accounts – TheaterAurora Admin';
 
-// Voorbeelddata – later te vervangen door database-query
-$accounts = [
-  ['id' => 1, 'email' => 'jan.jansen@theater.nl', 'rol' => 'Medewerker'],
-  ['id' => 2, 'email' => 'lisa.vos@theater.nl', 'rol' => 'Admin'],
-  ['id' => 3, 'email' => 'peter.bakker@theater.nl', 'rol' => 'Medewerker'],
-  ['id' => 4, 'email' => 'sara.de.wit@theater.nl', 'rol' => 'Medewerker'],
-];
-
-// Zoekfilter op e-mail (filtert mock data)
 $zoekEmail = trim($_GET['email'] ?? '');
-if ($zoekEmail !== '') {
-  $accounts = array_filter(
-    $accounts,
-    fn($a) => str_contains(strtolower($a['email']), strtolower($zoekEmail))
-  );
+
+$accounts = [];
+if ($pdo !== null) {
+    $sql = 'SELECT g.Id, c.Email, r.Naam AS Rol, g.Voornaam, g.Tussenvoegsel, g.Achternaam
+            FROM Gebruiker g
+            LEFT JOIN Contact c ON c.GebruikerId = g.Id
+            LEFT JOIN Rol r ON r.GebruikerId = g.Id AND r.Isactief = 1
+            WHERE g.Isactief = 1';
+    $params = [];
+    if ($zoekEmail !== '') {
+        $sql .= ' AND c.Email LIKE :email';
+        $params[':email'] = "%{$zoekEmail}%";
+    }
+    $sql .= ' ORDER BY g.Achternaam, g.Voornaam';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $accounts = $stmt->fetchAll();
 }
+
+$succes = isset($_GET['succes']) && $_GET['succes'] == '1';
 
 require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
     <div class="container">
+
+      <div class="pagina-header">
+        <h1 class="sectie-titel">Accounts</h1>
+        <a href="account-toevoegen.php" class="knop knop-primair">+ Nieuw account</a>
+      </div>
+
+      <?php if ($succes): ?>
+        <div class="alert alert-success">Account succesvol toegevoegd</div>
+      <?php endif; ?>
 
       <!-- E-MAIL ZOEKBALK -->
       <form method="GET" action="" class="filter-form">
@@ -52,7 +64,7 @@ require_once 'includes/header.php';
         <div class="table-container"><table>
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Naam</th>
               <th>E-mail</th>
               <th>Rol</th>
               <th>Acties</th>
@@ -62,17 +74,19 @@ require_once 'includes/header.php';
             <?php if (!empty($accounts)): ?>
               <?php foreach ($accounts as $account): ?>
                 <tr>
-                  <td><?= htmlspecialchars($account['id']) ?></td>
-                  <td><?= htmlspecialchars($account['email']) ?></td>
-                  <td><?= htmlspecialchars($account['rol']) ?></td>
+                  <td><?= htmlspecialchars($account['Voornaam'] . ' ' . ($account['Tussenvoegsel'] ? $account['Tussenvoegsel'] . ' ' : '') . $account['Achternaam']) ?></td>
+                  <td><?= htmlspecialchars($account['Email'] ?? '') ?></td>
+                  <td><?= htmlspecialchars($account['Rol'] ?? '-') ?></td>
                   <td class="cel-acties">
-                    <a href="account-wijzig.php?id=<?= urlencode($account['id']) ?>"
-                       class="knop-klein knop-klein--wijzig">Wijzig</a>
-                    <a href="account-verwijder.php?id=<?= urlencode($account['id']) ?>"
-                       class="knop-klein knop-klein--verwijder"
-                       onclick="return confirm('Weet je zeker dat je dit account wilt verwijderen?')">
-                      Verwijder
-                    </a>
+                    <div class="cel-acties-inner">
+                      <a href="account-wijzig.php?id=<?= urlencode($account['Id']) ?>"
+                         class="knop-klein knop-klein--wijzig">Wijzig</a>
+                      <a href="account-verwijder.php?id=<?= urlencode($account['Id']) ?>"
+                         class="knop-klein knop-klein--verwijder"
+                         onclick="return confirm('Weet je zeker dat je dit account wilt verwijderen?')">
+                        Verwijder
+                      </a>
+                    </div>
                   </td>
                 </tr>
               <?php endforeach; ?>
