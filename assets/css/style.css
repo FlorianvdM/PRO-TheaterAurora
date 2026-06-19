@@ -134,15 +134,14 @@ h1, h2, h3, h4, h5, h6 {
 .header-nav a {
   color: var(--kleur-tekst);
   text-decoration: none;
-  transition: color 0.2s ease;
+  padding: 6px 12px;
+  border-radius: var(--straal);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .header-nav a:hover {
   background-color: var(--kleur-accent);
   color: #ffffff;
-  border-radius: var(--straal);
-  padding: 4px 12px;
-  margin: -4px -12px;
 }
 
 /* Hamburger menu */
@@ -191,9 +190,8 @@ h1, h2, h3, h4, h5, h6 {
   .header-nav li { border-bottom: 1px solid var(--kleur-rand); }
   .header-nav li:last-child { border-bottom: none; }
   .header-nav a {
-    display: block; padding: 12px 0;
-    color: var(--kleur-tekst);
-    text-decoration: none;
+    display: block; padding: 12px 20px;
+    border-radius: 0;
   }
 }
 
