@@ -1,9 +1,9 @@
 <?php
 // db.php – Database verbinding (PDO)
-$dbHost = 'localhost:3307';
-$dbNaam = 'theater_aurora';
-$dbGebruiker = 'root';
-$dbWachtwoord = '';
+$dbHost = getenv('DB_HOST') ?: 'localhost:3307';
+$dbNaam = getenv('DB_NAME') ?: 'theater_aurora';
+$dbGebruiker = getenv('DB_USER') ?: 'root';
+$dbWachtwoord = getenv('DB_PASSWORD') ?: '';
 
 try { // PDO verbinding opzetten met exception mode
     $pdo = new PDO(
