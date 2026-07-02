@@ -2,7 +2,7 @@ services:
   app:
     build: .
     ports:
-      - "8080:80"
+      - "4000:80"
     volumes:
       - .:/var/www/html
     environment:
