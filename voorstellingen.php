@@ -7,6 +7,8 @@ require_once __DIR__ . '/includes/toegang.php';
 
 $paginaTitel = 'Voorstellingen – TheaterAurora';
 
+$succes = isset($_GET['succes']) && $_GET['succes'] == '1';
+
 $zoekTerm = trim($_GET['zoeken'] ?? '');
 
 $voorstellingen = []; // Query actieve voorstellingen uit database
@@ -28,6 +30,10 @@ require_once 'includes/header.php';
 
   <main class="main-content">
     <div class="container">
+
+    <?php if ($succes): ?>
+      <div class="alert alert-success">Voorstelling succesvol bijgewerkt</div>
+    <?php endif; ?>
 
     <!-- ZOEKBALK + NIEUWE KNOP -->
     <div class="zoek-plus-knop">
@@ -65,6 +71,11 @@ require_once 'includes/header.php';
               <p class="kaart-datum-tijd">
                 <?= date('d-m-Y', strtotime($voorstelling['Datum'])) ?> om <?= date('H:i', strtotime($voorstelling['Tijd'])) ?>
               </p>
+              <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Admin'): ?>
+                <div class="kaart-acties">
+                  <a href="voorstelling-wijzigen.php?id=<?= $voorstelling['Id'] ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
+                </div>
+              <?php endif; ?>
             </div>
           </article>
         <?php endforeach; ?>
@@ -76,4 +87,5 @@ require_once 'includes/header.php';
     </div>
   </main>
 
+<?php require_once 'includes/footer.php'; ?>
 <?php require_once 'includes/footer.php'; ?>

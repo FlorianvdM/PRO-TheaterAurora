@@ -2,6 +2,17 @@ services:
   app:
     build: .
     ports:
+      - "${APP_PORT:-4000}:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_NAME=${DB_NAME:-theater_aurora}
+      - DB_USER=${DB_USER:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-rootpassword}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
       - "8080:80"
     volumes:
       - .:/var/www/html
