@@ -8,6 +8,7 @@ require_once __DIR__ . '/includes/toegang.php';
 $paginaTitel = 'Voorstellingen – TheaterAurora';
 
 $succes = isset($_GET['succes']) && $_GET['succes'] == '1';
+$verwijderd = isset($_GET['verwijderd']) && $_GET['verwijderd'] == '1';
 
 $zoekTerm = trim($_GET['zoeken'] ?? '');
 
@@ -33,6 +34,9 @@ require_once 'includes/header.php';
 
     <?php if ($succes): ?>
       <div class="alert alert-success">Voorstelling succesvol bijgewerkt</div>
+    <?php endif; ?>
+    <?php if ($verwijderd): ?>
+      <div class="alert alert-success">Voorstelling succesvol verwijderd</div>
     <?php endif; ?>
 
     <!-- ZOEKBALK + NIEUWE KNOP -->
@@ -74,6 +78,11 @@ require_once 'includes/header.php';
               <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Admin'): ?>
                 <div class="kaart-acties">
                   <a href="voorstelling-wijzigen.php?id=<?= $voorstelling['Id'] ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
+                  <a
+                    href="voorstelling-verwijderen.php?id=<?= $voorstelling['Id'] ?>"
+                    class="knop-klein knop-klein--verwijder"
+                    onclick="return bevestigVerwijderen('<?= htmlspecialchars(addslashes($voorstelling['Naam'])) ?>')"
+                  >Verwijder</a>
                 </div>
               <?php endif; ?>
             </div>
@@ -87,5 +96,10 @@ require_once 'includes/header.php';
     </div>
   </main>
 
-<?php require_once 'includes/footer.php'; ?>
+  <script>
+    function bevestigVerwijderen(naam) {
+      return confirm('Weet u zeker dat u voorstelling "' + naam + '" wilt verwijderen?');
+    }
+  </script>
+
 <?php require_once 'includes/footer.php'; ?>

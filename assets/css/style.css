@@ -873,9 +873,12 @@ tr:hover td {
 
 .kaart-acties {
   margin-top: 6px;
+  display: flex;
+  gap: 8px;
 }
 
-.kaart-acties .knop-klein--wijzig {
+.kaart-acties .knop-klein--wijzig,
+.kaart-acties .knop-klein--verwijder {
   background-color: var(--kleur-achtergrond);
 }
 
@@ -1001,5 +1004,4 @@ tr:hover td {
   .knop-klein {
     text-align: center;
   }
-}
 }
