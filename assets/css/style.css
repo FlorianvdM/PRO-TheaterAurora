@@ -11,17 +11,53 @@
 }
 
 :root {
-  --kleur-achtergrond:   #ffffff;
-  --kleur-vlak:          #f9fafb;
-  --kleur-rand:          #e5e7eb;
-  --kleur-accent:        #D4AF37;
-  --kleur-accent-hover:  #7B1B38;
-  --kleur-tekst:         #1A1A1B;
-  --kleur-tekst-zacht:   #4b5563;
+  --kleur-achtergrond:   #0B0B0B;
+  --kleur-vlak:          #161414;
+  --kleur-vlak-hoog:     #211c1c;
+  --kleur-rand:          #3a2a2c;
+  --kleur-accent:        #D3AF37;
+  --kleur-accent-zacht:  #e8c766;
+  --kleur-accent-hover:  #800020;
+  --kleur-accent-2:      #1F6850;
+  --kleur-accent-2-zacht: #6fb8a0;
+  --kleur-tekst:         #f4ead9;
+  --kleur-tekst-zacht:   #bfae9f;
   --lettertype:          'Open Sans', sans-serif;
   --lettertype-kop:      'Playfair Display', serif;
   --lettertype-quote:    'Lobster Two', cursive;
   --straal:              6px;
+  --schaduw-goud:        0 2px 10px rgba(211, 175, 55, 0.25);
+}
+
+/* Fluwelen gordijn-textuur met een subtiel brocaat-patroon voor een luxueuzere uitstraling */
+body {
+  background-image:
+    radial-gradient(ellipse 70% 60% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55) 100%),
+    radial-gradient(circle at 12% 8%, rgba(211, 175, 55, 0.10) 0%, transparent 38%),
+    radial-gradient(circle at 88% 92%, rgba(211, 175, 55, 0.08) 0%, transparent 42%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(211, 175, 55, 0.045) 0px,
+      rgba(211, 175, 55, 0.045) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(211, 175, 55, 0.045) 0px,
+      rgba(211, 175, 55, 0.045) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.18) 0px,
+      rgba(0, 0, 0, 0.18) 2px,
+      transparent 2px,
+      transparent 26px
+    ),
+    radial-gradient(ellipse at top, #1c1614 0%, #0B0B0B 68%);
+  background-attachment: fixed;
 }
 
 body {
@@ -51,7 +87,6 @@ body.homepagina-bg .site-footer {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-body.homepagina-bg .header-logo,
 body.homepagina-bg .header-nav,
 body.homepagina-bg .footer-info,
 body.homepagina-bg .footer-copy,
@@ -60,8 +95,7 @@ body.homepagina-bg .hamburger {
   color: #ffffff;
 }
 
-body.homepagina-bg .header-nav a,
-body.homepagina-bg .header-logo a {
+body.homepagina-bg .header-nav a {
   color: #ffffff;
 }
 
@@ -83,10 +117,12 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--lettertype-kop);
   color: var(--kleur-accent);
+  letter-spacing: 0.02em;
 }
 
 .quote, .review-tekst, blockquote {
   font-family: var(--lettertype-quote);
+  color: var(--kleur-accent-2-zacht);
 }
 
 /* ============================================
@@ -96,30 +132,34 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-bottom: 1px solid var(--kleur-rand);
+  padding: 14px 24px;
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
+  border-bottom: 2px solid var(--kleur-accent);
+  box-shadow: 0 4px 0 -2px var(--kleur-accent-hover), 0 6px 0 -4px var(--kleur-accent-2), 0 8px 18px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 10;
 }
 
 .header-logo {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 18px;
-  border-radius: var(--straal);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-img {
+  height: 58px;
+  width: auto;
+  display: block;
 }
 
 .header-logo a {
   color: inherit;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .header-nav {
-  border: 1px solid var(--kleur-tekst);
-  padding: 6px 40px;
-  border-radius: var(--straal);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--kleur-tekst);
 }
 
@@ -132,16 +172,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-nav a {
-  color: var(--kleur-tekst);
+  color: var(--kleur-tekst-zacht);
   text-decoration: none;
   padding: 6px 12px;
   border-radius: var(--straal);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 600;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .header-nav a:hover {
   background-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 /* Hamburger menu */
@@ -151,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 5px;
   background: none;
-  border: 1px solid var(--kleur-tekst);
+  border: 1px solid var(--kleur-accent);
   border-radius: var(--straal);
   padding: 8px 10px;
   cursor: pointer;
@@ -161,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--kleur-tekst);
+  background-color: var(--kleur-accent);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -173,12 +217,13 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .site-header { position: relative; }
+  .header-logo-img { height: 44px; }
   .header-nav {
     position: absolute;
     top: 100%; left: 0; right: 0;
     border: none; border-radius: 0; padding: 0;
-    background-color: var(--kleur-achtergrond);
-    border-bottom: 1px solid var(--kleur-rand);
+    background-color: var(--kleur-vlak);
+    border-bottom: 1px solid var(--kleur-accent);
     max-height: 0; overflow: hidden;
     transition: max-height 0.3s ease;
   }
@@ -276,37 +321,43 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 .knop {
   display: inline-block;
-  padding: 7px 18px;
-  border-radius: var(--straal);
+  padding: 9px 22px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid var(--kleur-rand);
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .knop-primair {
   background-color: var(--kleur-accent);
   color: #1A1A1B;
   border-color: var(--kleur-accent);
+  box-shadow: var(--schaduw-goud);
 }
 
 .knop-primair:hover {
-  background-color: var(--kleur-accent);
-  border-color: var(--kleur-accent);
+  background-color: var(--kleur-accent-hover);
+  border-color: var(--kleur-accent-hover);
   color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(123, 27, 56, 0.4);
 }
 
 .knop-secundair {
   background-color: transparent;
-  color: var(--kleur-tekst-zacht);
+  color: var(--kleur-accent);
+  border-color: var(--kleur-accent);
 }
 
 .knop-secundair:hover {
   background-color: var(--kleur-accent);
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
+  transform: translateY(-1px);
 }
 
 .knop-klein {
@@ -328,7 +379,7 @@ h1, h2, h3, h4, h5, h6 {
 .knop-klein--wijzig:hover {
   background-color: var(--kleur-accent);
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 .knop-klein--verwijder {
@@ -340,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 .knop-klein--verwijder:hover {
   background-color: var(--kleur-accent);
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 /* ============================================
@@ -354,7 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-card {
-  background-color: var(--kleur-vlak);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   border: 1px solid var(--kleur-rand);
   border-radius: var(--straal);
   padding: 14px 22px;
@@ -435,7 +486,7 @@ h1, h2, h3, h4, h5, h6 {
    FORMULIEREN
    ============================================ */
 .form-container {
-  background-color: var(--kleur-vlak);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   padding: 20px;
   border-radius: var(--straal);
   border: 1px solid var(--kleur-rand);
@@ -552,7 +603,7 @@ tr:last-child td:last-child {
 tr:hover th,
 tr:hover td {
   background-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 .lege-rij td {
@@ -596,8 +647,8 @@ tr:hover td {
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
-  background-color: var(--kleur-accent);
-  color: #fff;
+  background: linear-gradient(135deg, var(--kleur-accent-2-zacht), var(--kleur-accent-2));
+  color: #eafff5;
 }
 
 .status-badge {
@@ -627,6 +678,24 @@ tr:hover td {
   text-align: center;
   padding: 140px 20px;
   margin-bottom: 30px;
+  position: relative;
+}
+
+.hero-sectie::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(211, 175, 55, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-sectie::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 3px;
+  margin: 0 auto 22px;
+  background: linear-gradient(90deg, transparent, var(--kleur-accent), var(--kleur-accent-2-zacht), var(--kleur-accent), transparent);
 }
 
 @media (max-width: 480px) {
@@ -690,7 +759,7 @@ tr:hover td {
 .tab:hover {
   background-color: var(--kleur-accent);
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 .tab.actief {
@@ -708,7 +777,7 @@ tr:hover td {
 }
 
 .melding-item {
-  background-color: var(--kleur-vlak);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   border: 1px solid var(--kleur-rand);
   border-radius: var(--straal);
   padding: 14px 18px;
@@ -721,7 +790,7 @@ tr:hover td {
 .melding-item:hover {
   background-color: var(--kleur-accent);
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: #1A1A1B;
 }
 
 .melding-item.verborgen {
@@ -794,26 +863,31 @@ tr:hover td {
 
 .kaart {
   border: 1px solid var(--kleur-rand);
-  border-radius: var(--straal);
+  border-radius: 10px;
   overflow: hidden;
-  background-color: var(--kleur-vlak);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
 .kaart:hover {
-  background-color: var(--kleur-accent);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   border-color: var(--kleur-accent);
-  color: #ffffff;
+  color: var(--kleur-tekst);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(63, 163, 130, 0.15);
 }
 
 .kaart:hover .kaart-titel,
 .kaart:hover .kaart-tekst,
 .kaart:hover .kaart-datum-tijd {
-  color: #ffffff;
+  color: inherit;
 }
+
+.kaart:hover .kaart-titel { color: var(--kleur-accent-zacht); }
+.kaart:hover .kaart-datum-tijd { color: var(--kleur-accent); }
 
 .kaart-afbeelding {
   width: 100%;
@@ -850,7 +924,23 @@ tr:hover td {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
+  border-top: 1px dashed var(--kleur-rand);
 }
+
+.kaart-inhoud::before,
+.kaart-inhoud::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--kleur-achtergrond);
+}
+
+.kaart-inhoud::before { left: -6px; }
+.kaart-inhoud::after { right: -6px; }
 
 .kaart-titel {
   font-size: 14px;
@@ -906,7 +996,7 @@ tr:hover td {
 }
 
 .tickets-lege-staat {
-  background-color: var(--kleur-vlak);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   border: 1px solid var(--kleur-rand);
   border-radius: var(--straal);
   padding: 40px;
@@ -940,20 +1030,23 @@ tr:hover td {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: var(--kleur-achtergrond);
-  border-top: 1px solid var(--kleur-rand);
+  padding: 16px 24px;
+  background: linear-gradient(160deg, var(--kleur-vlak), var(--kleur-vlak-hoog));
+  border-top: 2px solid var(--kleur-accent);
+  box-shadow: 0 -4px 0 -2px var(--kleur-accent-hover), 0 -6px 0 -4px var(--kleur-accent-2);
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .footer-info,
 .footer-copy {
-  border: 1px solid var(--kleur-tekst);
+  border: 1px solid var(--kleur-rand);
   padding: 6px 24px;
   border-radius: var(--straal);
   font-size: 13px;
-  color: var(--kleur-tekst);
+  color: var(--kleur-tekst-zacht);
+  font-family: var(--lettertype-kop);
+  letter-spacing: 0.03em;
 }
 
 /* ============================================

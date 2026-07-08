@@ -25,7 +25,7 @@ if ($pdo === null) {
 </head>
 <body>
   <header class="site-header">
-    <div class="header-logo">TheaterAurora</div>
+    <div class="header-logo"><img src="assets/images/logo.png" alt="Theater Aurora" class="header-logo-img" /></div>
   </header>
   <main class="error-container">
     <div class="error-inhoud">
@@ -54,7 +54,7 @@ if ($pdo === null) {
 <body class="<?= htmlspecialchars($bodyClass ?? '') ?>">
 
   <header class="site-header">
-    <div class="header-logo"><a href="index.php">TheaterAurora</a></div>
+    <div class="header-logo"><a href="index.php"><img src="assets/images/logo.png" alt="Theater Aurora" class="header-logo-img" /></a></div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span>
       <span></span>
