@@ -969,6 +969,9 @@ tr:hover td {
 
 .kaart-acties .knop-klein--wijzig,
 .kaart-acties .knop-klein--verwijder {
+}
+
+.kaart-acties .knop-klein--wijzig {
   background-color: var(--kleur-achtergrond);
 }
 
