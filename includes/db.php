@@ -1,6 +1,7 @@
 <?php
 // db.php – Database verbinding (PDO)
 $dbHost = getenv('DB_HOST') ?: '127.0.0.1:3308';
+$dbHost = getenv('DB_HOST') ?: 'localhost:3307';
 $dbNaam = getenv('DB_NAME') ?: 'theater_aurora';
 $dbGebruiker = getenv('DB_USER') ?: 'root';
 $dbWachtwoord = getenv('DB_PASSWORD') ?: '';
