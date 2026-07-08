@@ -471,6 +471,18 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 20px;
   border-radius: var(--straal);
   border: 1px solid;
+  transition: opacity 0.4s ease, margin 0.4s ease, padding 0.4s ease, max-height 0.4s ease;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.alert--verdwijnt {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
 }
 
 .alert-danger {
@@ -857,6 +869,14 @@ tr:hover td {
   font-size: 11px;
   color: var(--kleur-accent);
   font-weight: 600;
+}
+
+.kaart-acties {
+  margin-top: 6px;
+}
+
+.kaart-acties .knop-klein--wijzig {
+  background-color: var(--kleur-achtergrond);
 }
 
 .geen-resultaten {

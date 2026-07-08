@@ -2,6 +2,18 @@
 // script.js – Alle scripts
 // ============================================
 
+// Meldingen automatisch verbergen na 2 seconden
+document.addEventListener('DOMContentLoaded', () => {
+  const meldingenBalken = document.querySelectorAll('.alert');
+
+  meldingenBalken.forEach(balk => {
+    setTimeout(() => {
+      balk.classList.add('alert--verdwijnt');
+      balk.addEventListener('transitionend', () => balk.remove());
+    }, 2000);
+  });
+});
+
 // Meldingen tab filtering
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.tab');
