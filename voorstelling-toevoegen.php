@@ -8,6 +8,8 @@ vereistToegang(['Admin', 'Medewerker']);
 
 $paginaTitel = 'Nieuwe voorstelling';
 $error = null;
+$vandaag = date('Y-m-d');
+$nu = date('H:i');
 
 $medewerkers = []; // Medewerkers ophalen voor dropdown
 if ($pdo !== null) {
@@ -33,6 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Formulier verzonden
 
     if (empty($medewerkerId) || empty($naam) || empty($datum) || empty($tijd) || empty($maxAantalTickets) || empty($beschikbaarheid)) { // Validatie
         $error = 'Vul alle verplichte velden in.';
+    } elseif ($datum < $vandaag) {
+        $error = 'Een datum in het verleden is niet meer mogelijk.';
+    } elseif ($datum === $vandaag && $tijd < $nu) {
+        $error = 'Een tijd in het verleden is niet meer mogelijk.';
     } elseif ($pdo === null) {
         $error = 'DataBase niet verbonden';
     } else {
@@ -93,10 +99,12 @@ require_once __DIR__ . '/includes/header.php';
             <div class="form-group">
                 <label for="datum">Datum *</label>
                 <input type="date" id="datum" name="datum" value="<?php echo htmlspecialchars($_POST['datum'] ?? ''); ?>" required>
+                <p id="datum-melding" class="veld-fout" hidden>Een datum in het verleden is niet meer mogelijk.</p>
             </div>
             <div class="form-group">
                 <label for="tijd">Tijd *</label>
                 <input type="time" id="tijd" name="tijd" value="<?php echo htmlspecialchars($_POST['tijd'] ?? ''); ?>" required>
+                <p id="tijd-melding" class="veld-fout" hidden>Een tijd in het verleden is niet meer mogelijk.</p>
             </div>
             <div class="form-group">
                 <label for="max_aantal_tickets">Max aantal tickets *</label>
@@ -120,5 +128,33 @@ require_once __DIR__ . '/includes/header.php';
         </form>
     </div>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const datumInput = document.getElementById('datum');
+    const tijdInput = document.getElementById('tijd');
+    const datumMelding = document.getElementById('datum-melding');
+    const tijdMelding = document.getElementById('tijd-melding');
+    const vandaag = '<?php echo $vandaag; ?>';
+    const nu = '<?php echo $nu; ?>';
+
+    function controleerDatumEnTijd() {
+        const datumVerleden = datumInput.value && datumInput.value < vandaag;
+        const tijdVerleden = datumInput.value === vandaag && tijdInput.value && tijdInput.value < nu;
+
+        datumMelding.hidden = !datumVerleden;
+        tijdMelding.hidden = !tijdVerleden;
+
+        datumInput.setCustomValidity(datumVerleden ? 'Een datum in het verleden is niet meer mogelijk.' : '');
+        tijdInput.setCustomValidity(tijdVerleden ? 'Een tijd in het verleden is niet meer mogelijk.' : '');
+    }
+
+    datumInput.addEventListener('input', controleerDatumEnTijd);
+    datumInput.addEventListener('change', controleerDatumEnTijd);
+    tijdInput.addEventListener('input', controleerDatumEnTijd);
+    tijdInput.addEventListener('change', controleerDatumEnTijd);
+    controleerDatumEnTijd();
+});
+</script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
