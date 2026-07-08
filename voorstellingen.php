@@ -49,6 +49,7 @@ require_once 'includes/header.php';
           placeholder="Zoeken"
           value="<?= htmlspecialchars($zoekTerm) ?>"
         />
+        <button type="submit" class="knop knop-primair">Zoeken</button>
       </form>
       <?php if (isset($_SESSION['rol']) && in_array($_SESSION['rol'], ['Admin', 'Medewerker'])): ?>
         <a href="voorstelling-toevoegen.php" class="knop knop-primair">Nieuwe voorstelling</a>

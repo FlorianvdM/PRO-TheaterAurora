@@ -801,13 +801,17 @@ tr:hover td {
    ZOEKBALK (VOORSTELLINGEN)
    ============================================ */
 .zoek-formulier {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 12px;
   width: 100%;
   max-width: 800px;
 }
 
 .zoek-input {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   background-color: transparent;
   border: 1px solid var(--kleur-rand);
   border-radius: var(--straal);
