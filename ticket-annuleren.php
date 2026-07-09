@@ -16,6 +16,7 @@ if ($id <= 0) {
     exit;
 }
 
+// Ticketgegevens ophalen zodat de medewerker eerst kan controleren wat wordt geannuleerd.
 if ($pdo !== null) {
     try {
         $stmt = $pdo->prepare('
