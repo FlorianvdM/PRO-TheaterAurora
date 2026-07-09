@@ -115,7 +115,7 @@ require_once __DIR__ . '/includes/header.php';
                 <input type="text" id="gebruikersnaam" name="gebruikersnaam" required value="<?= htmlspecialchars($_POST['gebruikersnaam'] ?? $account['Gebruikersnaam']) ?>">
             </div>
             <div class="form-group">
-                <label for="wachtwoord">Nieuw wachtwoord (laat leeg om te behouden)</label>
+                <label for="wachtwoord">Nieuw wachtwoord (leeg laten = wachtwoord behouden)</label>
                 <input type="password" id="wachtwoord" name="wachtwoord">
             </div>
             <div class="form-group">
