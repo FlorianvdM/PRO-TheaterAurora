@@ -31,7 +31,7 @@ if ($pdo === null) {
                 $pdo->beginTransaction();
 
                 if ($wachtwoord !== '') {
-                    $stmt = $pdo->prepare('UPDATE Gebruiker SET Voornaam = :voornaam, Tussenvoegsel = :tussenvoegsel, Achternaam = :achternaam, Gebruikersnaam = :gebruikersnaam, Wachtwoord = :wachtwoord, Datumgewijzigd = NOW(6) WHERE Id = :id');
+                    $stmt = $pdo->prepare('UPDATE Gebruiker SET Voornaam = :voornaam, Tussenvoegsel (optioneel) = :tussenvoegsel, Achternaam = :achternaam, Gebruikersnaam = :gebruikersnaam, Wachtwoord = :wachtwoord, Datumgewijzigd = NOW(6) WHERE Id = :id');
                     $stmt->execute([
                         ':voornaam' => $voornaam,
                         ':tussenvoegsel' => $tussenvoegsel ?: null,
@@ -41,7 +41,7 @@ if ($pdo === null) {
                         ':id' => $id
                     ]);
                 } else {
-                    $stmt = $pdo->prepare('UPDATE Gebruiker SET Voornaam = :voornaam, Tussenvoegsel = :tussenvoegsel, Achternaam = :achternaam, Gebruikersnaam = :gebruikersnaam, Datumgewijzigd = NOW(6) WHERE Id = :id');
+                    $stmt = $pdo->prepare('UPDATE Gebruiker SET Voornaam = :voornaam, Tussenvoegsel (optioneel) = :tussenvoegsel, Achternaam = :achternaam, Gebruikersnaam = :gebruikersnaam, Datumgewijzigd = NOW(6) WHERE Id = :id');
                     $stmt->execute([
                         ':voornaam' => $voornaam,
                         ':tussenvoegsel' => $tussenvoegsel ?: null,
@@ -74,7 +74,7 @@ if ($pdo === null) {
         }
     }
 
-    $stmt = $pdo->prepare('SELECT g.Id, g.Voornaam, g.Tussenvoegsel, g.Achternaam, g.Gebruikersnaam, c.Email, c.Mobiel, r.Naam AS Rol
+    $stmt = $pdo->prepare('SELECT g.Id, g.Voornaam, g.Tussenvoegsel (optioneel), g.Achternaam, g.Gebruikersnaam, c.Email, c.Mobiel, r.Naam AS Rol
                            FROM Gebruiker g
                            LEFT JOIN Contact c ON c.GebruikerId = g.Id
                            LEFT JOIN Rol r ON r.GebruikerId = g.Id AND r.Isactief = 1
@@ -103,8 +103,8 @@ require_once __DIR__ . '/includes/header.php';
                 <input type="text" id="voornaam" name="voornaam" required value="<?= htmlspecialchars($_POST['voornaam'] ?? $account['Voornaam']) ?>">
             </div>
             <div class="form-group">
-                <label for="tussenvoegsel">Tussenvoegsel</label>
-                <input type="text" id="tussenvoegsel" name="tussenvoegsel" value="<?= htmlspecialchars($_POST['tussenvoegsel'] ?? $account['Tussenvoegsel'] ?? '') ?>">
+                <label for="tussenvoegsel">Tussenvoegsel (optioneel)</label>
+                <input type="text" id="tussenvoegsel" name="tussenvoegsel" value="<?= htmlspecialchars($_POST['tussenvoegsel'] ?? $account['Tussenvoegsel (optioneel)'] ?? '') ?>">
             </div>
             <div class="form-group">
                 <label for="achternaam">Achternaam *</label>
