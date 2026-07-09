@@ -123,7 +123,7 @@ require_once __DIR__ . '/includes/header.php';
                 <input type="email" id="email" name="email" required value="<?= htmlspecialchars($_POST['email'] ?? $account['Email']) ?>">
             </div>
             <div class="form-group">
-                <label for="mobiel">Mobiel *</label>
+                <label for="mobiel">Telefoonnummer *</label>
                 <input type="text" id="mobiel" name="mobiel" required value="<?= htmlspecialchars($_POST['mobiel'] ?? $account['Mobiel']) ?>">
             </div>
             <div class="form-group">
