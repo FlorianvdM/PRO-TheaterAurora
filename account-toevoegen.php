@@ -6,7 +6,7 @@ session_start();
 require_once __DIR__ . '/includes/toegang.php';
 vereistToegang(['Admin']);
 
-$paginaTitel = 'Nieuw account';
+$paginaTitel = 'Account toevoegen';
 $error = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -68,7 +68,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <main class="main-content">
     <div class="container">
-        <h1>Nieuw account</h1>
+        <h1>Account toevoegen</h1>
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
@@ -111,7 +111,7 @@ require_once __DIR__ . '/includes/header.php';
                 </select>
             </div>
             <button type="submit" class="knop knop-primair">Account aanmaken</button>
-            <a href="accounts.php" class="knop knop-secundair">Annuleren</a>
+            <a href="accounts.php" class="knop knop-secundair">Terug</a>
         </form>
     </div>
 </main>

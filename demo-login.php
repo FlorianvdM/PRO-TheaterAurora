@@ -61,7 +61,7 @@ require_once __DIR__ . '/includes/header.php';
           onmouseover="this.style.borderColor='var(--kleur-accent)'; this.style.backgroundColor='var(--kleur-accent)'"
           onmouseout="this.style.borderColor='var(--kleur-rand)'; this.style.backgroundColor='var(--kleur-vlak)'">
             <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--kleur-tekst-zacht); margin-bottom: 6px;">
-              <?= htmlspecialchars($g['Rol']) ?>
+              <?= htmlspecialchars($g['Rol'] ?? '') ?>
             </div>
             <div style="font-size: 16px; font-weight: 700; color: var(--kleur-tekst);">
               <?= htmlspecialchars($g['Voornaam'] . ' ' . ($g['Tussenvoegsel'] ? $g['Tussenvoegsel'] . ' ' : '') . $g['Achternaam']) ?>
