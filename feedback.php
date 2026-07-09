@@ -51,6 +51,7 @@ if ($pdo !== null) {
     }
 }
 
+// Bezoekers kunnen feedback versturen; medewerkers zien alleen het overzicht.
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isMedewerker) {
     $naam = trim($_POST['naam'] ?? '');
     $onderwerp = trim($_POST['onderwerp'] ?? '');
