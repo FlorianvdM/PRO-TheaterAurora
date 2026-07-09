@@ -136,7 +136,7 @@ require_once __DIR__ . '/includes/header.php';
                 </select>
             </div>
             <button type="submit" class="knop knop-primair">Wijzigingen opslaan</button>
-            <a href="accounts.php" class="knop knop-secundair">Annuleren</a>
+            <a href="accounts.php" class="knop knop-secundair">Terug</a>
         </form>
         <?php endif; ?>
     </div>
