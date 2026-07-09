@@ -151,17 +151,21 @@ require_once __DIR__ . '/includes/header.php';
         <thead>
           <tr>
             <th>Naam</th>
+            <th>Gebruikersnaam</th>
             <th>E-mail</th>
+            <th>Mobiel</th>
             <th>Nummer</th>
             <th>Soort</th>
             <th>Rol</th>
+            <th>Status</th>
+            <th>Datum aangemaakt</th>
             <th>Acties</th>
           </tr>
         </thead>
         <tbody>
           <?php if (empty($medewerkers)): ?>
             <tr class="lege-rij">
-              <td colspan="6">Geen medewerkers gevonden.</td>
+              <td colspan="10">Geen medewerkers gevonden.</td>
             </tr>
           <?php else: ?>
             <?php foreach ($medewerkers as $m): ?>
@@ -169,10 +173,20 @@ require_once __DIR__ . '/includes/header.php';
                 <td class="cel-naam">
                   <span class="naam-volledig"><?php echo htmlspecialchars($m['Voornaam'] . ' ' . ($m['Tussenvoegsel'] ? $m['Tussenvoegsel'] . ' ' : '') . $m['Achternaam']); ?></span>
                 </td>
+                <td><?php echo htmlspecialchars($m['Gebruikersnaam']); ?></td>
                 <td><?php echo htmlspecialchars($m['Email'] ?? ''); ?></td>
+                <td><?php echo htmlspecialchars($m['Mobiel'] ?? ''); ?></td>
                 <td><?php echo htmlspecialchars($m['Nummer']); ?></td>
                 <td><span class="soort-badge"><?php echo htmlspecialchars($m['Medewerkersoort']); ?></span></td>
                 <td><?php echo htmlspecialchars($m['RolNaam'] ?? '-'); ?></td>
+                <td>
+                  <?php if ($m['Isactief']): ?>
+                    <span class="status-badge status-badge--actief">Actief</span>
+                  <?php else: ?>
+                    <span class="status-badge status-badge--inactief">Inactief</span>
+                  <?php endif; ?>
+                </td>
+                <td class="cel-datum"><?php echo date('d-m-Y', strtotime($m['Datumaangemaakt'])); ?></td>
                 <td class="cel-acties">
                   <div class="cel-acties-inner">
                     <a href="medewerker-wijzigen.php?id=<?php echo $m['Id']; ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
