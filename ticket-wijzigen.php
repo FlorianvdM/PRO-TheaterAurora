@@ -82,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'DataBase niet verbonden';
     } else {
         try {
+            // Alleen actieve tickets mogen worden bijgewerkt.
             $stmt = $pdo->prepare('
                 UPDATE Ticket
                 SET BezoekerId = :bezoekerId,
