@@ -1,0 +1,37 @@
+<mxfile host="Electron">
+  <diagram name="Pagina-1" id="iEJfqW0X0LRr3-YTYgKl">
+    <mxGraphModel dx="2828" dy="2952" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1080" width="1920" x="430" y="-170" as="geometry" />
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-3" edge="1" parent="1" source="Df1BdDYS1qzeeB2o6Bdk-1" style="endArrow=none;html=1;rounded=0;exitX=-0.001;exitY=0.122;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.124;entryDx=0;entryDy=0;entryPerimeter=0;" target="Df1BdDYS1qzeeB2o6Bdk-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1780" y="370" as="sourcePoint" />
+            <mxPoint x="1830" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 35px;&quot;&gt;Logo&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="460" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 40px;&quot;&gt;Nav Links&lt;/font&gt;" vertex="1">
+          <mxGeometry height="75" width="1040" x="1270" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-9" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;exitX=-0.001;exitY=0.122;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.124;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="430" y="767" as="sourcePoint" />
+            <mxPoint x="2352" y="769" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 35px;&quot;&gt;info&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="550" x="500" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="Df1BdDYS1qzeeB2o6Bdk-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;Copyrights&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="400" x="1910" y="795" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
