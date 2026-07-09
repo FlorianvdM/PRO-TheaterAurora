@@ -1166,6 +1166,7 @@ tr:hover td {
 .ticket-geannuleerd td {
   color: var(--kleur-tekst-zacht);
 }
+/* Ticketrijen worden op mobiel als kaarten getoond. */
 @media (max-width: 768px) {
   .tickets-tabel {
     border: 0;
