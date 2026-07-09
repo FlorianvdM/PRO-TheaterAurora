@@ -1140,3 +1140,29 @@ tr:hover td {
     text-align: center;
   }
 }
+/* ============================================
+   RESPONSIVE TICKETS
+   ============================================ */
+.status-badge--gereserveerd {
+  background-color: rgba(211, 175, 55, 0.16);
+  color: var(--kleur-accent-zacht);
+  border: 1px solid var(--kleur-accent);
+}
+
+.status-badge--geannuleerd {
+  background-color: rgba(248, 113, 113, 0.15);
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
+}
+
+.tickets-tabel td {
+  vertical-align: top;
+}
+
+.tickets-tabel .status-badge {
+  white-space: nowrap;
+}
+
+.ticket-geannuleerd td {
+  color: var(--kleur-tekst-zacht);
+}
