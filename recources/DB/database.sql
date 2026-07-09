@@ -107,6 +107,7 @@ CREATE TABLE Ticket (
                         FOREIGN KEY (PrijsId) REFERENCES Prijs(Id)
 );
 
+-- Feedback van bezoekers voor PBI 389.
 CREATE TABLE Feedback (
                           Id INT AUTO_INCREMENT PRIMARY KEY,
                           BezoekerId INT,
