@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__ . '/includes/toegang.php';
 vereistToegang(['Admin']);
 
-$paginaTitel = 'Account wijzigen';
+$paginaTitel = 'Wijzig account';
 $error = null;
 $succes = false;
 
