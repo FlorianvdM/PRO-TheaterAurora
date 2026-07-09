@@ -1166,3 +1166,79 @@ tr:hover td {
 .ticket-geannuleerd td {
   color: var(--kleur-tekst-zacht);
 }
+@media (max-width: 768px) {
+  .tickets-tabel {
+    border: 0;
+    background: transparent;
+  }
+
+  .tickets-tabel thead {
+    display: none;
+  }
+
+  .tickets-tabel,
+  .tickets-tabel tbody,
+  .tickets-tabel tr,
+  .tickets-tabel td {
+    display: block;
+    width: 100%;
+  }
+
+  .tickets-tabel tr {
+    margin-bottom: 14px;
+    overflow: hidden;
+    border: 1px solid var(--kleur-rand);
+    border-radius: var(--straal);
+    background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
+  }
+
+  .tickets-tabel tr:hover td {
+    background-color: transparent;
+    color: var(--kleur-tekst);
+  }
+
+  .tickets-tabel tr.ticket-geannuleerd:hover td,
+  .tickets-tabel tr.ticket-geannuleerd td {
+    color: var(--kleur-tekst-zacht);
+  }
+
+  .tickets-tabel td {
+    display: grid;
+    grid-template-columns: minmax(105px, 36%) 1fr;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--kleur-rand);
+  }
+
+  .tickets-tabel td:last-child {
+    border-bottom: 0;
+  }
+
+  .tickets-tabel td::before {
+    content: attr(data-label);
+    color: var(--kleur-tekst-zacht);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .tickets-tabel .cel-acties-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 0;
+  }
+
+  .tickets-tabel .knop-klein {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .tickets-tabel td {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
