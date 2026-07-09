@@ -6,10 +6,10 @@
 ?>
 
   <footer class="site-footer">
-    <div class="footer-info">info</div>
-    <div class="footer-copy">Copyrights</div>
+    <div class="footer-info">🎭 Theater Aurora &mdash; Kassa: di&ndash;zo 12:00&ndash;19:00</div>
+    <div class="footer-copy">&copy; <?= date('Y') ?> Theater Aurora. Alle rechten voorbehouden.</div>
   </footer>
 
-  <script src="assets/js/meldingen.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -1,2 +1,4 @@
-Assets/
+
 .idea/
+.env
+docker-compose.override.yml

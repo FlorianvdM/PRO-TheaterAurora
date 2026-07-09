@@ -1,11 +1,12 @@
 <?php
+// db.php – Database verbinding (PDO)
+$dbHost = getenv('DB_HOST') ?: '127.0.0.1:3308';
+$dbHost = getenv('DB_HOST') ?: 'localhost:3307';
+$dbNaam = getenv('DB_NAME') ?: 'theater_aurora';
+$dbGebruiker = getenv('DB_USER') ?: 'root';
+$dbWachtwoord = getenv('DB_PASSWORD') ?: '';
 
-$dbHost = 'localhost';
-$dbNaam = 'theater_aurora';
-$dbGebruiker = 'root';
-$dbWachtwoord = 'root';
-
-try {
+try { // PDO verbinding opzetten met exception mode
     $pdo = new PDO(
         "mysql:host={$dbHost};charset=utf8mb4",
         $dbGebruiker,
@@ -13,11 +14,13 @@ try {
         [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_TIMEOUT => 2,
         ]
     );
 
     $pdo->exec("CREATE DATABASE IF NOT EXISTS `{$dbNaam}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
     $pdo->exec("USE `{$dbNaam}`");
 } catch (PDOException $e) {
-    exit('Databaseverbinding mislukt: ' . $e->getMessage());
+    $pdo = null;
+    $dbFout = 'Databaseverbinding mislukt. Probeer het later opnieuw.';
 }

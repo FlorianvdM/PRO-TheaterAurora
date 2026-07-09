@@ -4,8 +4,13 @@
 // TheaterAurora – Meldingen pagina
 // ============================================
 
+require_once __DIR__ . '/includes/db.php';
+
+session_start();
+require_once __DIR__ . '/includes/toegang.php';
+vereistToegang(['Admin', 'Medewerker']);
+
 $paginaTitel = 'Meldingen – TheaterAurora';
-$paginaCss = 'assets/css/meldingen.css';
 
 // Beschikbare filter-categorieën
 $filterOpties = [
@@ -21,26 +26,34 @@ if (!array_key_exists($actiefFilter, $filterOpties)) {
   $actiefFilter = 'alle';
 }
 
-// Voorbeelddata – later te vervangen door een database-query
-$meldingen = [
-  ['type' => 'voorstelling', 'tekst' => 'Voorstelling "De Storm" begint over 30 minuten.'],
-  ['type' => 'tickets',      'tekst' => 'Uw tickets voor vrijdag zijn bevestigd.'],
-  ['type' => 'service',      'tekst' => 'Onderhoud gepland op zaterdag 08:00–10:00.'],
-  ['type' => 'voorstelling', 'tekst' => 'Nieuwe voorstelling toegevoegd: "Hamlet".'],
-  ['type' => 'tickets',      'tekst' => 'U heeft nog 2 tickets gereserveerd staan.'],
-];
-
-// Filteren op server-side als filter actief is
-$gefilterdeMeldingen = ($actiefFilter === 'alle')
-  ? $meldingen
-  : array_filter($meldingen, fn($m) => $m['type'] === $actiefFilter);
+// Meldingen ophalen uit database (met optionele filter)
+$meldingen = [];
+if ($pdo !== null) {
+  try {
+    if ($actiefFilter === 'alle') {
+      $stmt = $pdo->query('SELECT Type, Bericht FROM Melding WHERE Isactief = 1 ORDER BY Datumaangemaakt DESC');
+    } else {
+      $stmt = $pdo->prepare('SELECT Type, Bericht FROM Melding WHERE Isactief = 1 AND Type = :type ORDER BY Datumaangemaakt DESC');
+      $stmt->execute([':type' => $actiefFilter]);
+    }
+    $meldingen = $stmt->fetchAll();
+  } catch (PDOException $e) {
+    // Geen meldingen bij fout
+  }
+}
 
 require_once 'includes/header.php';
 ?>
 
   <main class="main-content">
-    <section class="meldingen-sectie">
-      <h1 class="sectie-titel">Meldingen</h1>
+    <div class="container">
+
+      <div class="pagina-header">
+        <div>
+          <h1 class="sectie-titel">Meldingen</h1>
+        </div>
+        <a href="melding-toevoegen.php" class="knop knop-primair">+ Nieuwe melding</a>
+      </div>
 
       <!-- FILTER TABS -->
       <div class="filter-tabs">
@@ -55,10 +68,10 @@ require_once 'includes/header.php';
 
       <!-- MELDINGEN LIJST -->
       <ul class="meldingen-lijst" id="meldingen-lijst">
-        <?php if (!empty($gefilterdeMeldingen)): ?>
-          <?php foreach ($gefilterdeMeldingen as $melding): ?>
-            <li class="melding-item" data-type="<?= htmlspecialchars($melding['type']) ?>">
-              <?= htmlspecialchars($melding['tekst']) ?>
+        <?php if (!empty($meldingen)): ?>
+          <?php foreach ($meldingen as $melding): ?>
+            <li class="melding-item" data-type="<?= htmlspecialchars($melding['Type']) ?>">
+              <?= htmlspecialchars($melding['Bericht']) ?>
             </li>
           <?php endforeach; ?>
         <?php else: ?>
@@ -66,7 +79,7 @@ require_once 'includes/header.php';
         <?php endif; ?>
       </ul>
 
-    </section>
+    </div>
   </main>
 
 <?php require_once 'includes/footer.php'; ?>
