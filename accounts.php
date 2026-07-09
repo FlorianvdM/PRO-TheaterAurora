@@ -43,7 +43,7 @@ require_once 'includes/header.php';
       </div>
 
       <?php if ($succes): ?>
-        <div class="alert alert-success">Account succesvol toegevoegd</div>
+        <div class="alert alert-success">Account succesvol aangemaakt</div>
       <?php endif; ?>
 
       <?php if ($verwijderd): ?>
