@@ -1,4 +1,5 @@
 <?php
+// medewerker-verwijderen.php – Medewerker soft-delete (Admin)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();
@@ -16,6 +17,7 @@ if ($pdo === null) {
     exit;
 }
 
+// SELECT: haal medewerker op ter bevestiging
 $stmt = $pdo->prepare('SELECT g.Id, g.Voornaam, g.Tussenvoegsel, g.Achternaam, m.Medewerkersoort, m.Nummer
                        FROM Medewerker m
                        INNER JOIN Gebruiker g ON g.Id = m.GebruikerId
@@ -36,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Soft-delete: 5 tabellen op Isactief = 0
     try {
         $pdo->beginTransaction();
 
