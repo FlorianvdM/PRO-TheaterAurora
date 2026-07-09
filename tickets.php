@@ -100,6 +100,7 @@ require_once 'includes/header.php';
                   <?php if ($kanTicketsBeheren): ?>
                     <td data-label="Acties" class="cel-acties">
                       <div class="cel-acties-inner">
+                        <!-- PBI 393: open het wijzigformulier voor dit ticket. -->
                         <a href="ticket-wijzigen.php?id=<?php echo urlencode($t['Id']); ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
                       </div>
                     </td>
