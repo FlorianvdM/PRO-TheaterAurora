@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Opmerking' => $_POST['opmerking'] ?? '',
     ];
 
+    // Controleer alle verplichte ticketvelden voordat er wordt opgeslagen.
     if (
         empty($formData['BezoekerId']) ||
         empty($formData['VoorstellingId']) ||
