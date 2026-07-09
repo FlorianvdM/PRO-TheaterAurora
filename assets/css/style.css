@@ -1218,6 +1218,72 @@ tr:hover td {
   color: var(--kleur-tekst-zacht);
 }
 
+/* ============================================
+   TICKET ANNULEREN
+   ============================================ */
+.knop-klein--annuleer {
+  color: #fca5a5;
+  background-color: transparent;
+  border-color: #7f1d1d;
+}
+
+.knop-klein--annuleer:hover {
+  background-color: #7f1d1d;
+  border-color: #991b1b;
+  color: #ffffff;
+}
+
+.knop-klein--uitgeschakeld {
+  color: var(--kleur-tekst-zacht);
+  background-color: rgba(255, 255, 255, 0.04);
+  cursor: default;
+}
+
+.ticket-detail-card {
+  max-width: 760px;
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
+}
+
+.ticket-detail-titel {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--kleur-accent);
+}
+
+.ticket-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+  margin-bottom: 20px;
+}
+
+.ticket-details div {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.ticket-details dt {
+  color: var(--kleur-tekst-zacht);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ticket-details dd {
+  overflow-wrap: anywhere;
+  margin-top: 4px;
+  color: var(--kleur-tekst);
+}
+
+.ticket-annuleer-form {
+  margin-top: 18px;
+}
+
 /* Ticketrijen worden op mobiel als kaarten getoond. */
 @media (max-width: 768px) {
   .feedback-kop {
@@ -1291,10 +1357,15 @@ tr:hover td {
   .tickets-tabel .knop-klein {
     width: auto;
   }
+
+  .ticket-details {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-  .feedback-kaart {
+  .feedback-kaart,
+  .ticket-detail-card {
     padding: 16px;
   }
 

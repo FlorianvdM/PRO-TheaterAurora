@@ -27,6 +27,7 @@ if ($pdo !== null) {
 
 $succes = isset($_GET['succes']) && $_GET['succes'] == '1';
 $gewijzigd = isset($_GET['gewijzigd']) && $_GET['gewijzigd'] == '1';
+$geannuleerd = isset($_GET['geannuleerd']) && $_GET['geannuleerd'] == '1';
 $fout = isset($_GET['fout']) && $_GET['fout'] == '1';
 
 function ticketStatusClass($status)
@@ -59,6 +60,9 @@ require_once 'includes/header.php';
       <?php endif; ?>
       <?php if ($gewijzigd): ?>
         <div class="alert alert-success">Ticket succesvol gewijzigd</div>
+      <?php endif; ?>
+      <?php if ($geannuleerd): ?>
+        <div class="alert alert-success">Ticket succesvol geannuleerd</div>
       <?php endif; ?>
       <?php if ($fout): ?>
         <div class="alert alert-danger">De ticketactie kon niet worden uitgevoerd</div>
@@ -102,6 +106,15 @@ require_once 'includes/header.php';
                       <div class="cel-acties-inner">
                         <!-- PBI 393: open het wijzigformulier voor dit ticket. -->
                         <a href="ticket-wijzigen.php?id=<?php echo urlencode($t['Id']); ?>" class="knop-klein knop-klein--wijzig">Wijzig</a>
+                        <?php if ($t['Status'] !== 'Geannuleerd'): ?>
+                          <!-- PBI 395: annuleer alleen tickets die nog niet geannuleerd zijn. -->
+                          <a
+                            href="ticket-annuleren.php?id=<?php echo urlencode($t['Id']); ?>"
+                            class="knop-klein knop-klein--annuleer"
+                          >Annuleer</a>
+                        <?php else: ?>
+                          <span class="knop-klein knop-klein--uitgeschakeld">Geannuleerd</span>
+                        <?php endif; ?>
                       </div>
                     </td>
                   <?php endif; ?>
