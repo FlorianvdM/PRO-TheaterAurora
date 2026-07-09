@@ -87,8 +87,12 @@ require_once __DIR__ . '/includes/header.php';
       </div>
 
       <?php $succes = $_GET['succes'] ?? ''; ?>
+      <?php $verwijderd = $_GET['verwijderd'] ?? ''; ?>
       <?php if ($succes === '2'): ?>
         <div class="alert alert-success">Medewerker succesvol gewijzigd</div>
+      <?php endif; ?>
+      <?php if ($verwijderd === '1'): ?>
+        <div class="alert alert-success">Medewerker succesvol verwijderd</div>
       <?php endif; ?>
 
       <div class="stats">
