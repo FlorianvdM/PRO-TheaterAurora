@@ -1223,6 +1223,7 @@ tr:hover td {
 }
 
 .ticket-details dd {
+  overflow-wrap: anywhere;
   margin-top: 4px;
   color: var(--kleur-tekst);
 }
