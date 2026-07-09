@@ -101,6 +101,7 @@ require_once 'includes/header.php';
                     <td data-label="Acties" class="cel-acties">
                       <div class="cel-acties-inner">
                         <?php if ($t['Status'] !== 'Geannuleerd'): ?>
+                          <!-- PBI 395: annuleer alleen tickets die nog niet geannuleerd zijn. -->
                           <a
                             href="ticket-annuleren.php?id=<?php echo urlencode($t['Id']); ?>"
                             class="knop-klein knop-klein--annuleer"
