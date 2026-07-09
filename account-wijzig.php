@@ -1,4 +1,5 @@
 <?php
+// account-wijzig.php – Bestaand account wijzigen (Admin)
 require_once __DIR__ . '/includes/db.php';
 
 session_start();
@@ -14,6 +15,7 @@ $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if ($pdo === null) {
     $error = 'Database niet verbonden';
 } else {
+    // POST: verwerk formulier en update 3 tabellen
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $voornaam = $_POST['voornaam'] ?? '';
         $tussenvoegsel = $_POST['tussenvoegsel'] ?? '';
@@ -30,6 +32,7 @@ if ($pdo === null) {
             try {
                 $pdo->beginTransaction();
 
+                // Update Gebruiker (wachtwoord alleen bij wijziging)
                 if ($wachtwoord !== '') {
                     $stmt = $pdo->prepare('UPDATE Gebruiker SET Voornaam = :voornaam, Tussenvoegsel = :tussenvoegsel, Achternaam = :achternaam, Gebruikersnaam = :gebruikersnaam, Wachtwoord = :wachtwoord, Datumgewijzigd = NOW(6) WHERE Id = :id');
                     $stmt->execute([
@@ -51,6 +54,7 @@ if ($pdo === null) {
                     ]);
                 }
 
+                // Update Contact
                 $stmt = $pdo->prepare('UPDATE Contact SET Email = :email, Mobiel = :mobiel, Datumgewijzigd = NOW(6) WHERE GebruikerId = :id');
                 $stmt->execute([
                     ':email' => $email,
@@ -58,6 +62,7 @@ if ($pdo === null) {
                     ':id' => $id
                 ]);
 
+                // Update Rol
                 $stmt = $pdo->prepare('UPDATE Rol SET Naam = :rol, Datumgewijzigd = NOW(6) WHERE GebruikerId = :id AND Isactief = 1');
                 $stmt->execute([
                     ':rol' => $rol,
@@ -74,6 +79,7 @@ if ($pdo === null) {
         }
     }
 
+    // SELECT: haal bestaande accountgegevens op
     $stmt = $pdo->prepare('SELECT g.Id, g.Voornaam, g.Tussenvoegsel, g.Achternaam, g.Gebruikersnaam, c.Email, c.Mobiel, r.Naam AS Rol
                            FROM Gebruiker g
                            LEFT JOIN Contact c ON c.GebruikerId = g.Id
