@@ -29,6 +29,7 @@ if ($pdo !== null) {
 }
 
 $succes = isset($_GET['succes']) && $_GET['succes'] == '1';
+$verwijderd = isset($_GET['verwijderd']) && $_GET['verwijderd'] == '1';
 
 require_once 'includes/header.php';
 ?>
@@ -43,6 +44,10 @@ require_once 'includes/header.php';
 
       <?php if ($succes): ?>
         <div class="alert alert-success">Account succesvol toegevoegd</div>
+      <?php endif; ?>
+
+      <?php if ($verwijderd): ?>
+        <div class="alert alert-success">Account succesvol verwijderd</div>
       <?php endif; ?>
 
       <!-- E-MAIL ZOEKBALK -->
