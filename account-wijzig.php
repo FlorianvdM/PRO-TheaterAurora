@@ -92,7 +92,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <main class="main-content">
     <div class="container">
-        <h1>Account wijzigen</h1>
+        <h1>Wijzig account</h1>
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
