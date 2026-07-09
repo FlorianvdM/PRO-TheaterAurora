@@ -86,6 +86,11 @@ require_once __DIR__ . '/includes/header.php';
         <a href="medewerker-toevoegen.php" class="knop knop-primair">+ Nieuwe medewerker</a>
       </div>
 
+      <?php $succes = $_GET['succes'] ?? ''; ?>
+      <?php if ($succes === '2'): ?>
+        <div class="alert alert-success">Medewerker succesvol gewijzigd</div>
+      <?php endif; ?>
+
       <div class="stats">
         <div class="stat-card">
           <span><?php echo count($medewerkers); ?></span>
