@@ -783,24 +783,94 @@ tr:hover td {
 }
 
 .melding-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
   border: 1px solid var(--kleur-rand);
   border-radius: var(--straal);
   padding: 14px 18px;
   color: var(--kleur-tekst-zacht);
   font-size: 13px;
-  cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.melding-item:hover {
-  background-color: var(--kleur-accent);
-  border-color: var(--kleur-accent);
-  color: #1A1A1B;
+.melding-tekst {
+  flex: 1;
+}
+
+.melding-item.geen-resultaten {
+  justify-content: center;
 }
 
 .melding-item.verborgen {
   display: none;
+}
+
+.knop-klein--verstuur {
+  color: var(--kleur-accent);
+  background-color: transparent;
+  border-color: var(--kleur-accent);
+  flex-shrink: 0;
+}
+
+.knop-klein--verstuur:hover {
+  background-color: var(--kleur-accent);
+  color: #1A1A1B;
+}
+
+/* ============================================
+   MELDINGEN BANNER (voor bezoekers)
+   ============================================ */
+.meldingen-banners {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.melding-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
+  border: 1px solid var(--kleur-accent);
+  border-radius: var(--straal);
+  padding: 12px 16px;
+  color: var(--kleur-tekst);
+  font-size: 13px;
+}
+
+.melding-banner-tag {
+  flex-shrink: 0;
+  background-color: var(--kleur-accent);
+  color: #1A1A1B;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.melding-banner-tekst {
+  flex: 1;
+}
+
+.melding-banner-sluit {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--kleur-tekst-zacht);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.melding-banner-sluit:hover {
+  color: var(--kleur-accent);
 }
 
 /* ============================================

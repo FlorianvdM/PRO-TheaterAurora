@@ -114,6 +114,8 @@ CREATE TABLE Melding (
                          Nummer MEDIUMINT NOT NULL UNIQUE,
                          Type VARCHAR(20) NOT NULL,
                          Bericht VARCHAR(250) NOT NULL,
+                         Verzonden BIT NOT NULL DEFAULT 0,
+                         VerzondenOp DATETIME(6) NULL,
                          Isactief BIT NOT NULL,
                          Opmerking VARCHAR(250),
                          Datumaangemaakt DATETIME(6) NOT NULL,

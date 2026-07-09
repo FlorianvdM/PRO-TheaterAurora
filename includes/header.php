@@ -96,3 +96,53 @@ if ($pdo === null) {
       }
     });
   </script>
+
+  <?php
+  // Meldingen die door Admin/Medewerker zijn verstuurd, tonen als banner aan bezoekers
+  $bezoekerMeldingen = [];
+  if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Bezoeker' && $pdo !== null) {
+    try {
+      $stmt = $pdo->query("SELECT Id, Type, Bericht FROM Melding WHERE Isactief = 1 AND Verzonden = 1 ORDER BY VerzondenOp DESC");
+      $bezoekerMeldingen = $stmt->fetchAll();
+    } catch (PDOException $e) {
+      $bezoekerMeldingen = [];
+    }
+  }
+  ?>
+
+  <?php if (!empty($bezoekerMeldingen)): ?>
+    <div class="container">
+      <div class="meldingen-banners" id="meldingen-banners">
+        <?php foreach ($bezoekerMeldingen as $bm): ?>
+          <div class="melding-banner" data-melding-id="<?= $bm['Id'] ?>">
+            <span class="melding-banner-tag"><?= htmlspecialchars(ucfirst($bm['Type'])) ?></span>
+            <span class="melding-banner-tekst"><?= htmlspecialchars($bm['Bericht']) ?></span>
+            <button type="button" class="melding-banner-sluit" aria-label="Melding sluiten">&times;</button>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var opslagSleutel = 'ta_gesloten_meldingen';
+        var gesloten = JSON.parse(localStorage.getItem(opslagSleutel) || '[]');
+
+        document.querySelectorAll('.melding-banner').forEach(function (banner) {
+          var id = banner.dataset.meldingId;
+
+          if (gesloten.indexOf(id) !== -1) {
+            banner.remove();
+            return;
+          }
+
+          var sluitKnop = banner.querySelector('.melding-banner-sluit');
+          sluitKnop.addEventListener('click', function () {
+            gesloten.push(id);
+            localStorage.setItem(opslagSleutel, JSON.stringify(gesloten));
+            banner.remove();
+          });
+        });
+      })();
+    </script>
+  <?php endif; ?>
