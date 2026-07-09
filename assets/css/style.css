@@ -1189,3 +1189,14 @@ tr:hover td {
   max-width: 760px;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  .feedback-kop {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-kaart {
+    padding: 16px;
+  }
+}
