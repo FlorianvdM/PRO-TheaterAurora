@@ -1111,3 +1111,93 @@ tr:hover td {
     text-align: center;
   }
 }
+
+/* ============================================
+   FORMULIER ACTIES
+   ============================================ */
+.form-acties {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .form-acties {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-acties .knop,
+  .form-acties button {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* ============================================
+   FEEDBACK
+   ============================================ */
+.feedback-lijst {
+  display: grid;
+  gap: 14px;
+}
+
+.feedback-kaart {
+  padding: 18px;
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--straal);
+  background: linear-gradient(160deg, var(--kleur-vlak-hoog), var(--kleur-vlak));
+}
+
+.feedback-kop {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.feedback-titel {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--kleur-accent);
+}
+
+.feedback-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--kleur-tekst-zacht);
+  font-size: 12px;
+}
+
+.feedback-bericht {
+  overflow-wrap: anywhere;
+  margin-top: 12px;
+  color: var(--kleur-tekst);
+  line-height: 1.7;
+}
+
+.feedback-formulier {
+  max-width: 720px;
+}
+
+.feedback-lege-staat {
+  max-width: 760px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .feedback-kop {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-kaart {
+    padding: 16px;
+  }
+}

@@ -65,6 +65,7 @@ if ($pdo === null) {
         <li><a href="index.php">Home</a></li>
         <li><a href="voorstellingen.php">Voorstellingen</a></li>
         <li><a href="tickets.php">Tickets</a></li>
+        <li><a href="feedback.php">Feedback</a></li>
         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'Admin'): ?>
           <li><a href="accounts.php">Accounts</a></li>
           <li><a href="medewerker.php">Medewerkers</a></li>
