@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':id' => $id,
             ]);
 
+            // Geen gewijzigde rij betekent dat het ticket niet meer annuleerbaar was.
             if ($stmt->rowCount() === 0) {
                 $error = 'De annulering kan niet worden uitgevoerd.';
             } else {
