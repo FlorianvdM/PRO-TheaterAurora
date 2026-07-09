@@ -54,6 +54,7 @@ if ($pdo !== null) {
 
 $formData = $ticket ?: [];
 
+// Formulierwaarden opnieuw gebruiken bij validatiefouten.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formData = [
         'BezoekerId' => $_POST['bezoeker_id'] ?? '',
