@@ -135,7 +135,7 @@ require_once __DIR__ . '/includes/header.php';
                     <option value="Bezoeker" <?= ($_POST['rol'] ?? $account['Rol']) === 'Bezoeker' ? 'selected' : '' ?>>Bezoeker</option>
                 </select>
             </div>
-            <button type="submit" class="knop knop-primair">Opslaan</button>
+            <button type="submit" class="knop knop-primair">Wijzigingen opslaan</button>
             <a href="accounts.php" class="knop knop-secundair">Annuleren</a>
         </form>
         <?php endif; ?>
