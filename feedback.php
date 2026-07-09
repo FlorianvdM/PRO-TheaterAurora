@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isMedewerker) {
     }
 }
 
+// Medewerkers krijgen de nieuwste feedback bovenaan te zien.
 if ($isMedewerker && $pdo !== null && $error === null) {
     try {
         $stmt = $pdo->query('
