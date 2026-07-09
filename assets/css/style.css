@@ -1176,6 +1176,7 @@ tr:hover td {
 }
 
 .feedback-bericht {
+  overflow-wrap: anywhere;
   margin-top: 12px;
   color: var(--kleur-tekst);
   line-height: 1.7;
