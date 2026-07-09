@@ -68,7 +68,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <main class="main-content">
     <div class="container">
-        <h1>Nieuw account</h1>
+        <h1>Account toevoegen</h1>
         <?php if ($error): ?>
             <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
