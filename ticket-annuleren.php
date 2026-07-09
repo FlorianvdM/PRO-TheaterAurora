@@ -41,6 +41,7 @@ if ($pdo !== null) {
     }
 }
 
+// Annuleren gebeurt pas na expliciete bevestiging via POST.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $opmerking = trim($_POST['opmerking'] ?? '');
 
